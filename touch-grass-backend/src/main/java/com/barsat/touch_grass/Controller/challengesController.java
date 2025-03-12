@@ -1,6 +1,6 @@
 package com.barsat.touch_grass.Controller;
 
-import com.barsat.touch_grass.Entity.challengesEntity;
+import com.barsat.touch_grass.DTO.challengesDTO;
 import com.barsat.touch_grass.Service.challengesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,18 +16,18 @@ public class challengesController {
     private final challengesService service;
 
     @GetMapping
-    public ResponseEntity<List<challengesEntity>> getAllChallenges() {
+    public ResponseEntity<List<challengesDTO>> getAllChallenges() {
         return ResponseEntity.ok(service.getAllChallenges());
     }
 
     @PostMapping
-    public ResponseEntity<challengesEntity> createChallenge(@RequestBody challengesEntity challenge) {
+    public ResponseEntity<challengesDTO> createChallenge(@RequestBody challengesDTO challenge) {
         return ResponseEntity.ok(service.createChallenge(challenge));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<challengesEntity> updateChallenge(@PathVariable Long id,
-                                                            @RequestBody challengesEntity challenge) {
+    public ResponseEntity<challengesDTO> updateChallenge(@PathVariable Long id,
+                                                            @RequestBody challengesDTO challenge) {
         return ResponseEntity.ok(service.updateChallenge(id, challenge));
     }
 
