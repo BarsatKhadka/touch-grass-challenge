@@ -15,8 +15,38 @@
             >
               {{ day.day }}
             </div>
+            <div class="text-xs">{{ day.name }}</div>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">Watch your streak grow as you connect with nature daily.</p>
+      </div>
+      
+      <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+            <span class="text-xl">👥</span>
+          </div>
+          <h3 class="font-bold text-xl text-green-700">Community Feed</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Stay motivated by seeing what your friends are up to:</p>
+        <div class="space-y-3 mb-4">
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-blue-100 rounded-full mr-2 flex items-center justify-center font-bold text-xs">JD</div>
+            <div class="text-sm">
+              <span class="font-semibold">Jamie</span> completed "Morning meditation by the lake" 
+              <span class="text-gray-500 text-xs">2h ago</span>
             </div>
-</div></div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-purple-100 rounded-full mr-2 flex items-center justify-center font-bold text-xs">TK</div>
+            <div class="text-sm">
+              <span class="font-semibold">Taylor</span> is on a 12-day streak! 
+              <span class="text-gray-500 text-xs">5h ago</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">Share your journey and celebrate each other's progress.</p>
+      </div>
     </div>
   </template>
   
