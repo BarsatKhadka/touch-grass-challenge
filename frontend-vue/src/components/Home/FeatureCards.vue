@@ -47,6 +47,31 @@
         </div>
         <p class="text-gray-600 italic">Share your journey and celebrate each other's progress.</p>
       </div>
+      
+      <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+            <span class="text-xl">📸</span>
+          </div>
+          <h3 class="font-bold text-xl text-green-700">Daily Nature Challenges</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Each day brings a new adventure! Complete challenges like:</p>
+        <ul class="space-y-2 mb-4">
+          <li class="flex items-center">
+            <span class="text-green-500 mr-2">✓</span>
+            <span>"Take a photo of the sunset"</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-green-500 mr-2">✓</span>
+            <span>"Hug a tree and feel its energy"</span>
+          </li>
+          <li class="flex items-center">
+            <span class="text-green-500 mr-2">✓</span>
+            <span>"Find a unique flower in your neighborhood"</span>
+          </li>
+        </ul>
+        <p class="text-gray-600 italic">Capture moments that matter with simple photo proof.</p>
+      </div>
     </div>
   </template>
   
