@@ -1,11 +1,12 @@
 <script setup>
+import HomeAfterLogin from './components/Home/HomeAfterLogin.vue';
 </script>
 
 <template>
-  <p className="underline">Test vue</p>
-  
+  <p class="underline">Test vue</p>
+  <HomeAfterLogin />
 </template>
 
 <style scoped>
-
+/* Add your styles here */
 </style>
