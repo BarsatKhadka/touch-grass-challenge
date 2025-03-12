@@ -1,10 +1,13 @@
 <script setup>
-import HomeAfterLogin from './components/Home/HomeAfterLogin.vue';
+// No need to import Home or HomeAfterLogin here
 </script>
 
 <template>
-  <p class="underline">Test vue</p>
-  <HomeAfterLogin />
+  <nav>
+    <router-link to="/"></router-link>
+    <router-link to="/home"></router-link>
+  </nav>
+  <router-view></router-view>
 </template>
 
 <style scoped>
