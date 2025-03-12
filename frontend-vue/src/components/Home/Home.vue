@@ -6,17 +6,17 @@
       <div class="absolute bottom-24 right-24 w-96 h-96 bg-emerald-200 rounded-full opacity-20 blur-3xl animate-pulse-slow"></div>
     </div>
 
-
     <div class="flex flex-col items-center justify-center relative z-10">
-      
-
       <div class="relative mb-10">
-        <img src="/logo.png" alt="Touch Grass Challenge Logo" class="w-48 h-48 rounded-full shadow-2xl animate-pulse-slow" />
+        <img
+          src="/logo.png"
+          alt="Touch Grass Challenge Logo"
+          class="w-48 h-48 rounded-full shadow-2xl animate-breathing"
+        />
         <div class="absolute -bottom-2 -right-2 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl">
           <span class="text-3xl">🌱</span>
         </div>
       </div>
-
 
       <h1 class="text-6xl font-extrabold mb-6 bg-clip-text bg-gradient-to-r from-green-700 to-emerald-600">
         Touch Grass Challenge
@@ -44,7 +44,31 @@ export default {
 </script>
 
 <style scoped>
-/* Animation for Pulse Effect */
+
+.animate-breathing {
+  animation: box-breathing 4s ease-in-out infinite;
+}
+
+@keyframes box-breathing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  75% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+
 .animate-pulse-slow {
   animation: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -60,7 +84,6 @@ export default {
   }
 }
 
-/* Tailwind Customizations for Smooth Hover Effect */
 button:hover {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px) scale(1.05);
