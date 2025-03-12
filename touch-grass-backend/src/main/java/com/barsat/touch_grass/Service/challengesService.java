@@ -12,6 +12,7 @@ public class challengesService {
 
     private final challengesRepo repository;
 
+    //dependency injection for easier testing.
     public challengesService(challengesRepo repository) {
         this.repository = repository;
     }
