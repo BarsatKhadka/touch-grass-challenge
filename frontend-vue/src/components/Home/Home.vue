@@ -18,15 +18,15 @@
         </div>
       </div>
 
-      <h1 class="text-6xl font-extrabold mb-6 bg-clip-text bg-gradient-to-r from-green-700 to-emerald-600">
+      <h1 class="sm:text-6xl text-2xl font-extrabold mb-6 bg-clip-text bg-gradient-to-r from-green-700 to-emerald-600">
         Touch Grass Challenge
       </h1>
 
-      <p class="text-2xl mb-4 max-w-2xl mx-auto text-center text-gray-700 leading-relaxed">
-        A daily reminder to embrace things that are real.
+      <p class="sm:text-2xl text-xl mb-4 max-w-2xl mx-auto text-center text-gray-700 leading-relaxed">
+        Daily reminder to embrace things that are real.
       </p>
 
-      <p class="text-lg italic mb-10 text-gray-600 text-center max-w-xl mx-auto">
+      <p class="sm:text-lg italic mb-10 text-gray-600 text-center max-w-xl mx-auto">
         Build streaks, build habits, build a better life.
       </p>
 
@@ -45,6 +45,7 @@ export default {
 
 <style scoped>
 
+/* Attempt to animate box-breating pattern on logo */
 .animate-breathing {
   animation: box-breathing 4s ease-in-out infinite;
 }
