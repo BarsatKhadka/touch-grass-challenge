@@ -5,8 +5,18 @@
           <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
             <span class="text-xl">🔥</span>
           </div>
+          <h3 class="font-bold text-xl text-green-700">Build Your Streak</h3>
         </div>
-      </div>
+        <p class="text-gray-600 mb-4">Consistency is key to forming lasting habits:</p>
+        <div class="flex justify-between mb-4">
+          <div v-for="(day, index) in days" :key="index" class="text-center">
+            <div
+              :class="['w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1', day.status === 'active' ? 'bg-green-500 text-white' : 'bg-green-100 text-gray-400']"
+            >
+              {{ day.day }}
+            </div>
+            </div>
+</div></div>
     </div>
   </template>
   
