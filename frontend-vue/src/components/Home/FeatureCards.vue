@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-4xl mx-auto mt-12 grid grid-cols-1 gap-8">
+    <div class="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
