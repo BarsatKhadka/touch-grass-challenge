@@ -11,6 +11,12 @@
                 Touch Grass
                 </span>
             </div>
+            <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                <router-link to="/home" class="...">Dashboard</router-link>
+                <router-link to="/challenges" class="...">Challenges</router-link>
+                <router-link to="/community" class="...">Community</router-link>
+                <router-link to="/achievements" class="...">Achievements</router-link>
+                </div>
             </div>
 
 
