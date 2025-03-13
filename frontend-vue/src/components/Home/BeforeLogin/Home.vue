@@ -15,13 +15,8 @@
     </div>
     
     <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10 space-y-8">
-      <div class="relative mb-12 transform hover:rotate-3 transition-transform duration-300">
-        <div class="absolute -left-24 top-1/2 -translate-y-1/2">
-          <div class="w-16 h-16 rounded-full border-2 border-blue-500 flex items-center justify-center relative">
-            <div class="absolute inset-2 bg-blue-100 rounded-full opacity-70"></div>
-            <span class="text-blue-700 text-xs font-medium relative z-10">Breathe</span>
-          </div>
-        </div>
+      <div class="relative group">
+        <div class="absolute inset-0 blur-md bg-white/40 rounded-full group-hover:blur-lg transition-all duration-500"></div>
         
         <img
           src="/logo.png"
