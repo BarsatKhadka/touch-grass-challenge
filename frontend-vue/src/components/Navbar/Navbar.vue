@@ -18,6 +18,18 @@
                 <router-link to="/achievements" class="...">Achievements</router-link>
                 </div>
             </div>
+            <div class="ml-3 relative mt-4">
+                <div>
+                    <button @click="toggleUserMenu" class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    <span class="sr-only">Open user menu</span>
+                    <div class="h-8 w-8 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center text-white font-medium">
+                        JD
+                    </div>
+                    </button>
+                </div>
+            </div>
+    
+
 
 
         </div>
