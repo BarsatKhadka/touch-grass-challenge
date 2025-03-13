@@ -1,26 +1,7 @@
 <template>
     <div class="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-            <span class="text-xl">🔥</span>
-          </div>
-          <h3 class="font-bold text-xl text-green-700">Build Your Streak</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Consistency is key to forming lasting habits:</p>
-        <div class="flex justify-between mb-4">
-          <div v-for="(day, index) in days" :key="index" class="text-center">
-            <div
-              :class="['w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1', day.status === 'active' ? 'bg-green-500 text-white' : 'bg-green-100 text-gray-400']"
-            >
-              {{ day.day }}
-            </div>
-            <div class="text-xs">{{ day.name }}</div>
-          </div>
-        </div>
-        <p class="text-gray-600 italic">Watch your streak grow as you connect with nature daily.</p>
-      </div>
       
+        <!-- card1 -->
       <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
@@ -47,7 +28,9 @@
         </div>
         <p class="text-gray-600 italic">Share your journey and celebrate each other's progress.</p>
       </div>
-      
+
+
+      <!-- card2 -->
       <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
@@ -72,7 +55,8 @@
         </ul>
         <p class="text-gray-600 italic">Capture moments that matter with simple photo proof.</p>
       </div>
-      
+
+      <!-- card3 -->
       <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
@@ -89,6 +73,28 @@
           </div>
         </div>
         <p class="text-gray-600 italic">Create and share your own nature challenges with friends.</p>
+        </div>
+
+      <!-- card4 -->
+      <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+            <span class="text-xl">🔥</span>
+          </div>
+          <h3 class="font-bold text-xl text-green-700">Build Your Streak</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Consistency is key to forming lasting habits:</p>
+        <div class="flex justify-between mb-4">
+          <div v-for="(day, index) in days" :key="index" class="text-center">
+            <div
+              :class="['w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1', day.status === 'active' ? 'bg-green-500 text-white' : 'bg-green-100 text-gray-400']"
+            >
+              {{ day.day }}
+            </div>
+            <div class="text-xs">{{ day.name }}</div>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">Watch your streak grow as you connect with nature daily.</p>
       </div>
     </div>
   </template>

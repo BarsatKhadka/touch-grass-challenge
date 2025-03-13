@@ -1,10 +1,5 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 text-gray-800 p-8 relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-full">
-      <div class="absolute top-16 left-16 w-72 h-72 bg-green-300 rounded-full opacity-30 blur-3xl animate-pulse-slow"></div>
-      <div class="absolute bottom-24 right-24 w-96 h-96 bg-emerald-300 rounded-full opacity-25 blur-3xl animate-pulse-slow"></div>
-      <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-teal-200 rounded-full opacity-20 blur-3xl animate-float"></div>
-    </div>
     
     <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10">
       <div class="relative mb-12 transform hover:rotate-3 transition-transform duration-300">
@@ -36,7 +31,11 @@
           <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
         </svg>
       </button>
+
+      <!-- feature cards -->
       <FeatureCards />
+
+
     </div>
    
   </div>
