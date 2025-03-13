@@ -224,41 +224,65 @@
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-100 rounded-full translate-x-1/2 translate-y-1/2 opacity-50 group-hover:opacity-70 transition-opacity"></div>
           
             <div class="p-8 relative z-10">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <span class="text-xl">🔥</span>
+              <div class="flex items-center mb-6">
+                <div class="w-14 h-14 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl flex items-center justify-center mr-4 shadow-md transform group-hover:rotate-6 transition-transform duration-300">
+                  <span class="text-2xl">🔥</span>
                 </div>
-                <h3 class="font-bold text-xl text-green-700">Build Your Streak</h3>
+                <h3 class="font-bold text-2xl text-green-700 group-hover:text-green-600 transition-colors">Build Your Streak</h3>
               </div>
-              <p class="text-gray-600 mb-4">Consistency is key to forming lasting habits:</p>
+              <p class="text-gray-600 mb-6">Consistency is key to forming lasting habits:</p>
+              
+
               <div class="bg-white/70 backdrop-blur-sm p-6 rounded-xl border border-green-100 shadow-sm mb-6">
                 <div class="flex justify-between mb-2">
                   <div v-for="(day, index) in days" :key="index" class="text-center relative">
-                    <div
-                      :class="['w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1', day.status === 'active' ? 'bg-green-500 text-white' : 'bg-green-100 text-gray-400']"
-                    >
-                      {{ day.day }}
+                    <div class="relative">
+                      <div
+                        :class="[
+                          'w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 transition-all duration-300 relative overflow-hidden',
+                          day.status === 'active' ? 'bg-gradient-to-br from-green-400 to-green-500 text-white shadow-md' : 'bg-gray-100 text-gray-400'
+                        ]"
+                      >
+
+                        <div v-if="day.status === 'active'" class="absolute inset-0 rounded-full bg-white animate-ripple"></div>
+                        <span class="relative z-10 text-lg font-medium">{{ day.day }}</span>
+                      </div>
+                      
+                      <div v-if="index < days.length - 1" 
+                        :class="[
+                          'absolute top-1/2 -right-4 h-0.5 w-8 -translate-y-1/2',
+                          day.status === 'active' && days[index + 1].status === 'active' ? 'bg-gradient-to-r from-green-400 to-green-500' : 'bg-gray-200' 
+                        ]">
+                      </div>
                     </div>
-                    <div class="text-xs">{{ day.name }}</div>
+                    <div class="text-xs font-medium" :class="day.status === 'active' ? 'text-green-600' : 'text-gray-500'">{{ day.name }}</div>
                   </div>
                 </div>
                 
                 <div class="flex mt-8 mb-4">
-                  <div class="text-center">
-                    <div class="text-2xl font-bold">12</div>
-                    <div class="text-xs">Days</div>
+                  <div class="flex-1 border-r border-gray-200 pr-4">
+                    <div class="text-xs text-gray-500 mb-1">Current Streak</div>
+                    <div class="text-2xl font-bold text-green-600">5 days</div>
                   </div>
-                  <div class="text-center">
-                    <div class="text-2xl font-bold">3</div>
-                    <div class="text-xs">Challenges</div>
+                  <div class="flex-1 px-4 border-r border-gray-200">
+                    <div class="text-xs text-gray-500 mb-1">Longest Streak</div>
+                    <div class="text-2xl font-bold text-blue-600">21 days</div>
                   </div>
-                  <div class="text-center">
-                    <div class="text-2xl font-bold">100%</div>
-                    <div class="text-xs">Completion</div>
+                  <div class="flex-1 pl-4">
+                    <div class="text-xs text-gray-500 mb-1">Challenges Completed</div>
+                    <div class="text-2xl font-bold text-purple-600">37</div>
                   </div>
                 </div>
               </div>
+              
               <p class="text-gray-600 italic">Watch your streak grow as you connect with nature daily.</p>
+              
+              <button class="mt-6 bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-shadow flex items-center group">
+                <span>Check In Today</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -285,6 +309,7 @@
     </script>
     
     <style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
     .animate-expand {
       animation: expand 1.5s ease-out forwards;
@@ -314,6 +339,7 @@
       }
     }
 
+    /* Enhance button hover effects */
     button {
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
