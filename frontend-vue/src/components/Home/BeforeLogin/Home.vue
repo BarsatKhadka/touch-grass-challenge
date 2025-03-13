@@ -15,16 +15,14 @@
     </div>
     
     <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10 space-y-8">
-      <div class="relative group">
-        <div class="absolute inset-0 blur-md bg-white/40 rounded-full group-hover:blur-lg transition-all duration-500"></div>
-        
-        <img
-          src="/logo.png"
-          alt="Touch Grass Challenge Logo"
-          class="w-48 h-48 rounded-full shadow-2xl animate-breathing relative z-10 border-4 border-white"
-        />
-        <div class="absolute -bottom-2 -right-2 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl z-20">
-          <span class="text-3xl animate-bounce-subtle">🌱</span>
+      <div class="relative">
+        <div class="w-48 h-48 rounded-full bg-gradient-to-br from-green-400 to-blue-500 animate-breathing shadow-2xl"></div>
+        <div class="absolute inset-4 rounded-full overflow-hidden border-4 border-white">
+          <img
+            src="/logo.png"
+            alt="Touch Grass Challenge Logo"
+            class="w-full h-full object-cover"
+          />
         </div>
       </div>
       
