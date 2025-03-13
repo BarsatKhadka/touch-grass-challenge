@@ -4,8 +4,9 @@
     <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10">
       <div class="relative mb-12 transform hover:rotate-3 transition-transform duration-300">
         <div class="absolute -left-24 top-1/2 -translate-y-1/2">
-          <div class="w-16 h-16 rounded-full border-2 border-green-500 flex items-center justify-center">
-            <span class="text-green-700 text-xs font-medium">Breathe</span>
+          <div class="w-16 h-16 rounded-full border-2 border-green-500 flex items-center justify-center relative">
+            <div class="absolute inset-2 bg-green-100 rounded-full opacity-70"></div>
+            <span class="text-green-700 text-xs font-medium relative z-10">Breathe</span>
           </div>
         </div>
         
@@ -138,5 +139,28 @@ button:hover {
 
 button:active {
   transform: translateY(1px) scale(0.98);
+}
+
+.animate-breath-sync {
+  animation: breath-sync 8s ease-in-out infinite;
+}
+
+@keyframes breath-sync {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+  75% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
 }
 </style>
