@@ -126,14 +126,31 @@
                 <h3 class="font-bold text-xl text-green-700">Build Your Streak</h3>
               </div>
               <p class="text-gray-600 mb-4">Consistency is key to forming lasting habits:</p>
-              <div class="flex justify-between mb-4">
-                <div v-for="(day, index) in days" :key="index" class="text-center">
-                  <div
-                    :class="['w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1', day.status === 'active' ? 'bg-green-500 text-white' : 'bg-green-100 text-gray-400']"
-                  >
-                    {{ day.day }}
+              <div class="bg-white/70 backdrop-blur-sm p-6 rounded-xl border border-green-100 shadow-sm mb-6">
+                <div class="flex justify-between mb-2">
+                  <div v-for="(day, index) in days" :key="index" class="text-center relative">
+                    <div
+                      :class="['w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1', day.status === 'active' ? 'bg-green-500 text-white' : 'bg-green-100 text-gray-400']"
+                    >
+                      {{ day.day }}
+                    </div>
+                    <div class="text-xs">{{ day.name }}</div>
                   </div>
-                  <div class="text-xs">{{ day.name }}</div>
+                </div>
+                
+                <div class="flex mt-8 mb-4">
+                  <div class="text-center">
+                    <div class="text-2xl font-bold">12</div>
+                    <div class="text-xs">Days</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold">3</div>
+                    <div class="text-xs">Challenges</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold">100%</div>
+                    <div class="text-xs">Completion</div>
+                  </div>
                 </div>
               </div>
               <p class="text-gray-600 italic">Watch your streak grow as you connect with nature daily.</p>
@@ -163,6 +180,47 @@
     </script>
     
     <style scoped>
-    
+     
+
+    .animate-expand {
+      animation: expand 1.5s ease-out forwards;
+    }
+
+    @keyframes expand {
+      0% {
+        transform: scaleX(0);
+      }
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    .animate-ripple {
+      animation: ripple 2s linear infinite;
+    }
+
+    @keyframes ripple {
+      0% {
+        opacity: 0.7;
+        transform: scale(0);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(2.5);
+      }
+    }
+
+    button {
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    button:active {
+      transform: translateY(0) scale(0.98);
+    }
     </style>
     
