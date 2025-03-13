@@ -5,7 +5,7 @@
             <li v-for="challenge in challenges" :key="challenge.id">
                 {{ challenge.challengeName }}
                 <button @click="editChallenge(challenge)">Edit</button>
-                <button @click="deleteChallenge(challenge.id)">Delete</button>
+                <button @click="deleteChallenge(challenge.challengesId)">Delete</button>
             </li>
         </ul>
 
