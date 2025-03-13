@@ -232,7 +232,7 @@
               </div>
               <p class="text-gray-600 mb-6">Consistency is key to forming lasting habits:</p>
               
-
+              
               <div class="bg-white/70 backdrop-blur-sm p-6 rounded-xl border border-green-100 shadow-sm mb-6">
                 <div class="flex justify-between mb-2">
                   <div v-for="(day, index) in days" :key="index" class="text-center relative">
@@ -243,11 +243,11 @@
                           day.status === 'active' ? 'bg-gradient-to-br from-green-400 to-green-500 text-white shadow-md' : 'bg-gray-100 text-gray-400'
                         ]"
                       >
-
+                        
                         <div v-if="day.status === 'active'" class="absolute inset-0 rounded-full bg-white animate-ripple"></div>
                         <span class="relative z-10 text-lg font-medium">{{ day.day }}</span>
                       </div>
-                      
+
                       <div v-if="index < days.length - 1" 
                         :class="[
                           'absolute top-1/2 -right-4 h-0.5 w-8 -translate-y-1/2',
@@ -258,6 +258,7 @@
                     <div class="text-xs font-medium" :class="day.status === 'active' ? 'text-green-600' : 'text-gray-500'">{{ day.name }}</div>
                   </div>
                 </div>
+                
                 
                 <div class="flex mt-8 mb-4">
                   <div class="flex-1 border-r border-gray-200 pr-4">
@@ -271,6 +272,29 @@
                   <div class="flex-1 pl-4">
                     <div class="text-xs text-gray-500 mb-1">Challenges Completed</div>
                     <div class="text-2xl font-bold text-purple-600">37</div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              <div class="mb-6">
+                <h4 class="font-medium text-gray-800 mb-3">Your Achievements</h4>
+                <div class="grid grid-cols-4 gap-2">
+                  <div class="bg-white/70 backdrop-blur-sm p-2 rounded-lg border border-yellow-100 flex flex-col items-center">
+                    <div class="text-2xl mb-1">🌱</div>
+                    <div class="text-xs text-center text-gray-600">First Step</div>
+                  </div>
+                  <div class="bg-white/70 backdrop-blur-sm p-2 rounded-lg border border-yellow-100 flex flex-col items-center">
+                    <div class="text-2xl mb-1">🌳</div>
+                    <div class="text-xs text-center text-gray-600">Tree Hugger</div>
+                  </div>
+                  <div class="bg-white/70 backdrop-blur-sm p-2 rounded-lg border border-yellow-100 flex flex-col items-center">
+                    <div class="text-2xl mb-1">🔥</div>
+                    <div class="text-xs text-center text-gray-600">7-Day Streak</div>
+                  </div>
+                  <div class="bg-gray-100 p-2 rounded-lg border border-gray-200 flex flex-col items-center opacity-70">
+                    <div class="text-2xl mb-1">🌟</div>
+                    <div class="text-xs text-center text-gray-500">Explorer</div>
                   </div>
                 </div>
               </div>
