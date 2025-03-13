@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Navbar />
         <h1>Challenges</h1>
         <ul>
             <li v-for="challenge in challenges" :key="challenge.id">
@@ -18,10 +19,14 @@
 </template>
 
 <script>
+import Navbar from '../../Navbar/Navbar.vue';
 import ChallengeService from '../../../services/ChallengeService';
 
 export default {
     name: 'HomeAfterLogin',
+    components: {
+        Navbar
+    },
     data() {
         return {
             challenges: [],
