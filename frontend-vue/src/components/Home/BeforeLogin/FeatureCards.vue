@@ -85,7 +85,7 @@
             <div class="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -translate-x-16 -translate-y-16 opacity-50 group-hover:opacity-70 transition-opacity"></div>
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-100 rounded-full translate-x-1/2 translate-y-1/2 opacity-50 group-hover:opacity-70 transition-opacity"></div>
           
-            <div class="p-8 text-left">
+            <div class="p-8 relative z-10">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
                   <span class="text-xl">✨</span>
@@ -93,15 +93,23 @@
                 <h3 class="font-bold text-xl text-green-700">Create Your Challenges</h3>
               </div>
               <p class="text-gray-600 mb-4">Add your own twist to the experience:</p>
-              <div class="bg-green-50 p-4 rounded-lg mb-4 border border-green-200">
-                <p class="text-sm font-medium text-green-800 mb-2">"New Challenge Idea"</p>
-                <p class="text-sm text-gray-700">Find a spot where you can see the stars and take a moment to appreciate the vastness of the universe.</p>
+              <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl mb-6 border border-green-200 shadow-inner">
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Challenge Title</label>
+                  <input type="text" placeholder="Night Sky Meditation" class="w-full px-4 py-2 rounded-lg border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" />
+                </div>
+                
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                  <textarea placeholder="Find a spot where you can see the stars..." class="w-full px-4 py-2 rounded-lg border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent h-24"></textarea>
+                </div>
+                
                 <div class="flex justify-end mt-2">
                   <button class="bg-green-600 text-white text-xs py-1 px-3 rounded-full">Share with friends</button>
                 </div>
               </div>
               <p class="text-gray-600 italic">Create and share your own nature challenges with friends.</p>
-              </div>
+            </div>
           </div>
 
           <!-- card4 -->
