@@ -26,8 +26,10 @@
         </div>
       </div>
       
-      <h1 class="sm:text-6xl text-4xl font-extrabold mb-6 text-center text-gray-800 tracking-wide">
-         Touch-Grass Challenge
+      <h1 class="sm:text-6xl text-4xl font-extrabold text-gray-800 tracking-wide leading-tight">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600">
+          Touch-Grass Challenge
+        </span>
       </h1>
       
       <p class="sm:text-2xl text-xl max-w-2xl mx-auto text-gray-700 leading-relaxed font-light">
