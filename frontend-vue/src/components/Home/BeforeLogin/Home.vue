@@ -30,8 +30,12 @@
          Touch-Grass Challenge
       </h1>
       
-      <p class="sm:text-2xl text-xl mb-6 max-w-2xl mx-auto text-center text-gray-700 leading-relaxed font-light">
-        Daily reminder to embrace things that are <span class="font-medium text-blue-700">real</span>.
+      <p class="sm:text-2xl text-xl max-w-2xl mx-auto text-gray-700 leading-relaxed font-light">
+        Daily reminder to embrace things that are 
+        <span class="font-medium text-green-600 relative px-1">
+          real
+          <span class="absolute bottom-0 left-0 w-full h-1 bg-green-200 rounded-full"></span>
+        </span>
       </p>
       
       <p class="sm:text-lg italic mb-12 text-gray-600 text-center max-w-xl mx-auto">
