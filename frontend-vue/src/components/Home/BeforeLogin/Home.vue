@@ -40,9 +40,6 @@
         </span>
       </p>
       
-      <p class="sm:text-lg italic mb-12 text-gray-600 text-center max-w-xl mx-auto">
-        Build streaks, build habits, build a better life.
-      </p>
       
       <div class="flex flex-col sm:flex-row gap-4 mt-8">
       <router-link to="/home" >
