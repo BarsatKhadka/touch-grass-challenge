@@ -16,24 +16,57 @@
                         <h3 class="font-bold text-2xl text-green-700 group-hover:text-green-600 transition-colors">Community Feed</h3>
                     </div>
                     
+                    <p class="text-gray-600 mb-6">Stay motivated by seeing what your friends are up to:</p>
+                    
                     <div class="space-y-4 mb-8">
                         <div class="bg-white/70 backdrop-blur-sm p-4 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 bg-blue-100 rounded-full mr-2 flex items-center justify-center font-bold text-xs">JD</div>
-                                <div class="text-sm">
-                                    <span class="font-semibold">Jamie</span> completed "Morning meditation by the lake" 
-                                    <span class="text-gray-500 text-xs">2h ago</span>
+                                <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full mr-3 flex items-center justify-center font-bold text-xs text-white shadow-sm">JD</div>
+                                <div>
+                                    <div class="flex items-center mb-1">
+                                        <span class="font-semibold text-gray-800">Jamie</span>
+                                        <span class="ml-2 px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">Pro Member</span>
+                                    </div>
+                                    <p class="text-gray-700">Completed "Morning meditation by the lake"</p>
+                                    <div class="flex items-center mt-1">
+                                        <span class="text-gray-500 text-xs">2h ago</span>
+                                        <div class="flex ml-3">
+                                            <span class="text-green-500 mr-1">🌱</span>
+                                            <span class="text-xs text-gray-600">+15 points</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <div class="bg-white/70 backdrop-blur-sm p-4 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 bg-purple-100 rounded-full mr-2 flex items-center justify-center font-bold text-xs">TK</div>
-                                <div class="text-sm">
-                                    <span class="font-semibold">Taylor</span> is on a 12-day streak! 
-                                    <span class="text-gray-500 text-xs">5h ago</span>
+                                <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full mr-3 flex items-center justify-center font-bold text-xs text-white shadow-sm">TK</div>
+                                <div>
+                                    <div class="flex items-center mb-1">
+                                        <span class="font-semibold text-gray-800">Taylor</span>
+                                        <div class="ml-2 flex items-center">
+                                            <span class="text-yellow-500 mr-1">🔥</span>
+                                            <span class="text-xs font-medium text-yellow-600">12-day streak!</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-700">Captured a stunning sunset at the beach</p>
+                                    <div class="mt-2 rounded-lg overflow-hidden h-16 w-full bg-gray-100">
+                                        <div class="h-full w-full bg-cover bg-center opacity-90 hover:opacity-100 transition-opacity" style="background-image: url('/api/placeholder/400/200')"></div>
+                                    </div>
+                                    <div class="flex items-center mt-2">
+                                        <span class="text-gray-500 text-xs">5h ago</span>
+                                        <div class="flex ml-3 items-center">
+                                            <span class="text-xs text-gray-600 mr-2">23 ❤️</span>
+                                            <span class="text-xs text-gray-600">8 💬</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <p class="text-gray-600 italic">Share your journey and celebrate each other's progress.</p>
                     
                     <button class="mt-6 bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-shadow flex items-center group">
                         <span>View Community</span>
@@ -118,7 +151,7 @@
             <div class="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -translate-x-16 -translate-y-16 opacity-50 group-hover:opacity-70 transition-opacity"></div>
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-100 rounded-full translate-x-1/2 translate-y-1/2 opacity-50 group-hover:opacity-70 transition-opacity"></div>
           
-            <div class="p-8 text-left">
+            <div class="p-8 relative z-10">
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
                   <span class="text-xl">🔥</span>
@@ -180,7 +213,6 @@
     </script>
     
     <style scoped>
-     
 
     .animate-expand {
       animation: expand 1.5s ease-out forwards;
