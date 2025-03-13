@@ -72,6 +72,24 @@
         </ul>
         <p class="text-gray-600 italic">Capture moments that matter with simple photo proof.</p>
       </div>
+      
+      <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-md border border-green-100 text-left">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+            <span class="text-xl">✨</span>
+          </div>
+          <h3 class="font-bold text-xl text-green-700">Create Your Challenges</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Add your own twist to the experience:</p>
+        <div class="bg-green-50 p-4 rounded-lg mb-4 border border-green-200">
+          <p class="text-sm font-medium text-green-800 mb-2">"New Challenge Idea"</p>
+          <p class="text-sm text-gray-700">Find a spot where you can see the stars and take a moment to appreciate the vastness of the universe.</p>
+          <div class="flex justify-end mt-2">
+            <button class="bg-green-600 text-white text-xs py-1 px-3 rounded-full">Share with friends</button>
+          </div>
+        </div>
+        <p class="text-gray-600 italic">Create and share your own nature challenges with friends.</p>
+      </div>
     </div>
   </template>
   
