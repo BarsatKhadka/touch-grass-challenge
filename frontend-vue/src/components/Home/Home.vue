@@ -3,6 +3,12 @@
     
     <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10">
       <div class="relative mb-12 transform hover:rotate-3 transition-transform duration-300">
+        <div class="absolute -left-24 top-1/2 -translate-y-1/2">
+          <div class="w-16 h-16 rounded-full border-2 border-green-500 flex items-center justify-center">
+            <span class="text-green-700 text-xs font-medium">Breathe</span>
+          </div>
+        </div>
+        
         <img
           src="/logo.png"
           alt="Touch Grass Challenge Logo"
