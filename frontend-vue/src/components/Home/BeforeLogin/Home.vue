@@ -1,12 +1,25 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 text-gray-800 p-8 relative overflow-hidden">
+  <div class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-indigo-100 text-gray-800 py-12 px-4 sm:px-8 relative overflow-hidden">
     
-    <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-16 -right-16 w-64 h-64 bg-green-100 rounded-full opacity-50"></div>
+      <div class="absolute top-1/4 left-1/3 w-48 h-48 bg-blue-100 rounded-full opacity-30"></div>
+      <div class="absolute bottom-1/3 right-1/4 w-32 h-32 bg-indigo-100 rounded-full opacity-40"></div>
+      
+      
+      <div v-for="i in 8" :key="`grass-${i}`" 
+           :class="`absolute w-8 h-12 origin-bottom opacity-20 animate-sway-${i % 4 + 1}`"
+           :style="`bottom: 0; left: ${10 + i * 12}%; transform: rotate(${-10 + i * 3}deg);`">
+        <div class="w-full h-full bg-green-500 rounded-t-full"></div>
+      </div>
+    </div>
+    
+    <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10 space-y-8">
       <div class="relative mb-12 transform hover:rotate-3 transition-transform duration-300">
         <div class="absolute -left-24 top-1/2 -translate-y-1/2">
-          <div class="w-16 h-16 rounded-full border-2 border-green-500 flex items-center justify-center relative">
-            <div class="absolute inset-2 bg-green-100 rounded-full opacity-70"></div>
-            <span class="text-green-700 text-xs font-medium relative z-10">Breathe</span>
+          <div class="w-16 h-16 rounded-full border-2 border-blue-500 flex items-center justify-center relative">
+            <div class="absolute inset-2 bg-blue-100 rounded-full opacity-70"></div>
+            <span class="text-blue-700 text-xs font-medium relative z-10">Breathe</span>
           </div>
         </div>
         
@@ -20,19 +33,19 @@
         </div>
       </div>
       
-      <h1 class="sm:text-6xl text-4xl font-extrabold mb-6 text-center text-gray-800 ">
-         touch-grass Challenge
+      <h1 class="sm:text-6xl text-4xl font-extrabold mb-6 text-center text-gray-800 tracking-wide">
+         Touch-Grass Challenge
       </h1>
       
       <p class="sm:text-2xl text-xl mb-6 max-w-2xl mx-auto text-center text-gray-700 leading-relaxed font-light">
-        Daily reminder to embrace things that are <span class="font-medium text-green-700">real</span>.
+        Daily reminder to embrace things that are <span class="font-medium text-blue-700">real</span>.
       </p>
       
       <p class="sm:text-lg italic mb-12 text-gray-600 text-center max-w-xl mx-auto">
         Build streaks, build habits, build a better life.
       </p>
       
-      <router-link to="/home" class="bg-gradient-to-r from-green-600 to-emerald-500 text-white 
+      <router-link to="/home" class="bg-gradient-to-r from-blue-600 to-indigo-500 text-white 
       text-lg font-semibold py-4 px-12 rounded-full transform hover:-translate-y-1 
       hover:scale-105 transition duration-300 ease-in-out shadow-lg flex items-center 
       justify-center gap-2">
@@ -61,6 +74,12 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 .animate-breathing {
   animation: box-breathing 8s ease-in-out infinite;
 }
@@ -81,40 +100,6 @@ export default {
   75% {
     transform: scale(1.05);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  }
-}
-
-.animate-pulse-slow {
-  animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.1);
-  }
-}
-
-.animate-float {
-  animation: float 12s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px);
-  }
-  50% {
-    transform: translateY(0) translateX(20px);
-  }
-  75% {
-    transform: translateY(20px) translateX(10px);
   }
 }
 
@@ -141,28 +126,5 @@ button:hover {
 
 button:active {
   transform: translateY(1px) scale(0.98);
-}
-
-.animate-breath-sync {
-  animation: breath-sync 8s ease-in-out infinite;
-}
-
-@keyframes breath-sync {
-  0%, 100% {
-    transform: scale(0.8);
-    opacity: 0.5;
-  }
-  25% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.9;
-  }
-  75% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
 }
 </style>
