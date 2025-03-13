@@ -4,7 +4,7 @@
         <ul>
             <li v-for="challenge in challenges" :key="challenge.id">
                 {{ challenge.challengeName }}
-                <button @click="editChallenge(challenge)">Edit</button>
+                <button @click="editChallenge(challenge.challengesId)">Edit</button>
                 <button @click="deleteChallenge(challenge.challengesId)">Delete</button>
             </li>
         </ul>
@@ -26,9 +26,9 @@ export default {
         return {
             challenges: [],
             challengeForm: {
-                id: null,
                 challengeName: ''
             },
+            currentChallengeId: null,
             isEditing: false
         }
     },
@@ -47,12 +47,18 @@ export default {
                 this.resetForm();
             });
         },
-        editChallenge(challenge) {
-            this.challengeForm = { ...challenge };
-            this.isEditing = true;
+        editChallenge(challengeId) {
+            const challenge = this.challenges.find(c => c.challengesId === challengeId);
+            if (challenge) {
+                this.currentChallengeId = challengeId;
+                this.challengeForm = { 
+                    challengeName: challenge.challengeName 
+                };
+                this.isEditing = true;
+            }
         },
         updateChallenge() {
-            ChallengeService.updateChallenge(this.challengeForm.id, this.challengeForm).then(() => {
+            ChallengeService.updateChallenge(this.currentChallengeId, this.challengeForm).then(() => {
                 this.fetchChallenges();
                 this.resetForm();
             });
@@ -63,7 +69,8 @@ export default {
             });
         },
         resetForm() {
-            this.challengeForm = { id: null, challengeName: '' };
+            this.challengeForm = { challengeName: '' };
+            this.currentChallengeId = null;
             this.isEditing = false;
         }
     }
