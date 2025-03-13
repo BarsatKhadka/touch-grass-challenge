@@ -80,37 +80,86 @@
 
           <!-- card2 -->
           <div class="group relative bg-gradient-to-br from-white to-green-50 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-green-100">
-
-            <div class="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -translate-x-16 -translate-y-16 opacity-50 group-hover:opacity-70 transition-opacity"></div>
-            <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-100 rounded-full translate-x-1/2 translate-y-1/2 opacity-50 group-hover:opacity-70 transition-opacity"></div>
+        <!-- Decorative elements -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -translate-x-16 -translate-y-16 opacity-50 group-hover:opacity-70 transition-opacity"></div>
+        <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-100 rounded-full translate-x-1/2 translate-y-1/2 opacity-50 group-hover:opacity-70 transition-opacity"></div>
+        
+        <!-- Card content -->
+        <div class="p-8 relative z-10">
+          <div class="flex items-center mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-500 rounded-xl flex items-center justify-center mr-4 shadow-md transform group-hover:rotate-6 transition-transform duration-300">
+              <span class="text-2xl">📸</span>
+            </div>
+            <h3 class="font-bold text-2xl text-green-700 group-hover:text-green-600 transition-colors">Daily Nature Challenges</h3>
+          </div>
           
-            <div class="p-8 text-left">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <span class="text-xl">📸</span>
+          <p class="text-gray-600 mb-6">Each day brings a new adventure! Complete challenges like:</p>
+          
+          <div class="space-y-4 mb-8">
+            <!-- Challenge items with enhanced styling -->
+            <div class="bg-white/70 backdrop-blur-sm p-4 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex">
+                <div class="w-10 h-10 bg-gradient-to-br from-green-400 to-green-500 rounded-full mr-3 flex items-center justify-center text-white shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
                 </div>
-                <h3 class="font-bold text-xl text-green-700">Daily Nature Challenges</h3>
+                <div>
+                  <div class="font-medium text-gray-800 mb-1">Take a photo of the sunset</div>
+                  <div class="flex items-center">
+                    <span class="text-xs text-gray-500">Today's Challenge</span>
+                    <span class="ml-2 px-2 py-0.5 bg-yellow-100 text-yellow-700 text-xs rounded-full">+20 points</span>
+                  </div>
+                </div>
               </div>
-              <p class="text-gray-600 mb-4">Each day brings a new adventure! Complete challenges like:</p>
-              <div class="bg-white/70 backdrop-blur-sm p-4 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition-shadow">
-                <ul class="space-y-2 mb-4">
-                  <li class="flex items-center">
-                    <span class="text-green-500 mr-2">✓</span>
-                    <span>"Take a photo of the sunset"</span>
-                  </li>
-                  <li class="flex items-center">
-                    <span class="text-green-500 mr-2">✓</span>
-                    <span>"Hug a tree and feel its energy"</span>
-                  </li>
-                  <li class="flex items-center">
-                    <span class="text-green-500 mr-2">✓</span>
-                    <span>"Find a unique flower in your neighborhood"</span>
-                  </li>
-                </ul>
+            </div>
+            
+            <div class="bg-white/70 backdrop-blur-sm p-4 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full mr-3 flex items-center justify-center text-white shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-800 mb-1">Hug a tree and feel its energy</div>
+                  <div class="flex items-center">
+                    <span class="text-xs text-gray-500">Tomorrow's Challenge</span>
+                    <span class="ml-2 px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">+15 points</span>
+                  </div>
+                </div>
               </div>
-              <p class="text-gray-600 italic">Capture moments that matter with simple photo proof.</p>
+            </div>
+            
+            <div class="bg-white/70 backdrop-blur-sm p-4 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex">
+                <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full mr-3 flex items-center justify-center text-white shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-800 mb-1">Find a unique flower in your neighborhood</div>
+                  <div class="flex items-center">
+                    <span class="text-xs text-gray-500">Community Favorite</span>
+                    <span class="ml-2 px-2 py-0.5 bg-purple-100 text-purple-700 text-xs rounded-full">+25 points</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          
+          <p class="text-gray-600 italic">Capture moments that matter with simple photo proof.</p>
+          
+          <button class="mt-6 bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-shadow flex items-center group">
+            <span>See All Challenges</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
 
           <!-- card3 -->
           <div class="group relative bg-gradient-to-br from-white to-green-50 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-green-100">
@@ -119,13 +168,13 @@
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-100 rounded-full translate-x-1/2 translate-y-1/2 opacity-50 group-hover:opacity-70 transition-opacity"></div>
           
             <div class="p-8 relative z-10">
-              <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <span class="text-xl">✨</span>
+              <div class="flex items-center mb-6">
+                <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-500 rounded-xl flex items-center justify-center mr-4 shadow-md transform group-hover:rotate-6 transition-transform duration-300">
+                  <span class="text-2xl">✨</span>
                 </div>
-                <h3 class="font-bold text-xl text-green-700">Create Your Challenges</h3>
+                <h3 class="font-bold text-2xl text-green-700 group-hover:text-green-600 transition-colors">Create Your Challenges</h3>
               </div>
-              <p class="text-gray-600 mb-4">Add your own twist to the experience:</p>
+              <p class="text-gray-600 mb-6">Add your own twist to the experience with custom challenges:</p>
               <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl mb-6 border border-green-200 shadow-inner">
                 <div class="mb-4">
                   <label class="block text-sm font-medium text-gray-700 mb-2">Challenge Title</label>
@@ -134,14 +183,37 @@
                 
                 <div class="mb-4">
                   <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
-                  <textarea placeholder="Find a spot where you can see the stars..." class="w-full px-4 py-2 rounded-lg border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent h-24"></textarea>
+                  <textarea placeholder="Find a spot where you can see the stars and take a moment to appreciate the vastness of the universe." class="w-full px-4 py-2 rounded-lg border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent h-24"></textarea>
                 </div>
                 
-                <div class="flex justify-end mt-2">
-                  <button class="bg-green-600 text-white text-xs py-1 px-3 rounded-full">Share with friends</button>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-3 py-1 bg-white rounded-full text-sm text-gray-700 border border-green-200 cursor-pointer hover:bg-green-500 hover:text-white hover:border-transparent transition-colors">#stargazing</span>
+                  <span class="px-3 py-1 bg-white rounded-full text-sm text-gray-700 border border-green-200 cursor-pointer hover:bg-green-500 hover:text-white hover:border-transparent transition-colors">#meditation</span>
+                  <span class="px-3 py-1 bg-white rounded-full text-sm text-gray-700 border border-green-200 cursor-pointer hover:bg-green-500 hover:text-white hover:border-transparent transition-colors">#evening</span>
+                  <span class="px-3 py-1 bg-green-500 text-white rounded-full text-sm border border-transparent cursor-pointer">#mindfulness</span>
+                  <span class="px-3 py-1 bg-white rounded-full text-sm text-gray-700 border border-green-200 cursor-pointer hover:bg-green-500 hover:text-white hover:border-transparent transition-colors">+ Add Tag</span>
+                </div>
+                
+                <div class="flex justify-end">
+                  <button class="bg-gradient-to-r from-green-600 to-green-500 text-white py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-shadow flex items-center group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Create & Share</span>
+                  </button>
                 </div>
               </div>
-              <p class="text-gray-600 italic">Create and share your own nature challenges with friends.</p>
+              
+              <div class="bg-white/70 backdrop-blur-sm p-4 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-center mb-2">
+                  <div class="w-6 h-6 bg-blue-100 rounded-full mr-2 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="text-sm text-blue-800 font-medium">Community challenges get featured on the homepage!</p>
+                </div>
+              </div>
             </div>
           </div>
 
