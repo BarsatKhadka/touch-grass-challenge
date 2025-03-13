@@ -52,7 +52,7 @@
                                     </div>
                                     <p class="text-gray-700">Captured a stunning sunset at the beach</p>
                                     <div class="mt-2 rounded-lg overflow-hidden h-16 w-full bg-gray-100">
-                                        <div class="h-full w-full bg-cover bg-center opacity-90 hover:opacity-100 transition-opacity" style="background-image: url('../../../assets/image/sun_5.jpg')"></div>
+                                        <div class="h-full w-full bg-cover bg-center opacity-90 hover:opacity-100 transition-opacity" style="background-image: url('../../../src/assets/image/sun_5.jpg')"></div>
                                     </div>
                                     <div class="flex items-center mt-2">
                                         <span class="text-gray-500 text-xs">5h ago</span>
@@ -314,10 +314,11 @@
     </template>
     
     <script>
+    import sun_5 from '../../../assets/image/sun_5.jpg';
     export default {
       data() {
         return {
-      
+
           days: [
             { day: 1, name: 'Mon', status: 'active' },
             { day: 2, name: 'Tue', status: 'active' },
