@@ -32,16 +32,18 @@
         Build streaks, build habits, build a better life.
       </p>
       
-      <button class="bg-gradient-to-r from-green-600 to-emerald-500 text-white text-lg font-semibold py-4 px-12 rounded-full transform hover:-translate-y-1 hover:scale-105 transition duration-300 ease-in-out shadow-lg flex items-center justify-center gap-2">
+      <router-link to="/home" class="bg-gradient-to-r from-green-600 to-emerald-500 text-white 
+      text-lg font-semibold py-4 px-12 rounded-full transform hover:-translate-y-1 
+      hover:scale-105 transition duration-300 ease-in-out shadow-lg flex items-center 
+      justify-center gap-2">
         Get Started
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
         </svg>
-      </button>
+      </router-link>
 
       <!-- feature cards -->
       <FeatureCards />
-
 
     </div>
    

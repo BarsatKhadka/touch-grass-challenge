@@ -6,11 +6,11 @@ const router = createRouter({
     routes: [
         {
             path: '/home',
-            component: () => import('../components/Home/HomeAfterLogin.vue')
+            component: () => import('../components/Home/AfterLogin/HomeAfterLogin.vue')
         },
         {
             path: '/',
-            component: () => import('../components/Home/Home.vue')
+            component: () => import('../components/Home/BeforeLogin/Home.vue')
         }
     ]
 });

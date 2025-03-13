@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ChallengeService from '../../services/ChallengeService';
+import ChallengeService from '../../../services/ChallengeService';
 
 export default {
     name: 'HomeAfterLogin',
