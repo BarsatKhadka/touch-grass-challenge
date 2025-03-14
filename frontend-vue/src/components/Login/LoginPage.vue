@@ -79,9 +79,17 @@
               </div>
             </div>
             
-            <button type="submit" class="w-full bg-green-500 text-white py-3 px-4 rounded-lg">
-              Sign in
-            </button>
+            <div>
+              <button 
+                type="submit" 
+                class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex items-center justify-center"
+              >
+                <span class="mr-2">Sign in</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -167,5 +175,17 @@ export default {
 
 input:focus {
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+button {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0) scale(0.98);
 }
 </style>
