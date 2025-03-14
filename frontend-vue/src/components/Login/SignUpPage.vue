@@ -80,8 +80,14 @@
               </div>
             </div>
             
-            <button type="submit" class="w-full bg-green-500 text-white py-2 px-4 rounded mt-6">
+            <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white
+              text-lg font-semibold py-3 px-6 rounded-full transform hover:-translate-y-1
+              hover:scale-105 transition duration-300 ease-in-out shadow-lg flex items-center
+              justify-center gap-2 mt-4">
               Create Account
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
             </button>
           </form>
         </div>
@@ -109,6 +115,12 @@
   </script>
 
   <style scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
   .animate-breathing {
     animation: box-breathing 8s ease-in-out infinite;
   }
@@ -130,5 +142,21 @@
       transform: scale(1.05);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
+  }
+
+  button {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  button:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  button:active {
+    transform: translateY(1px) scale(0.98);
+  }
+
+  input:focus {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
   }
   </style>
