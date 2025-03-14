@@ -28,7 +28,17 @@
                     <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
                       <span class="text-lg">🌿</span>
                     </div>
-                    <span class="font-medium text-gray-800">{{ challenge.challengeName }}</span>
+                    <div>
+                      <span class="font-medium text-gray-800">{{ challenge.challengeName }}</span>
+                      <div class="flex items-center mt-1">
+                        <span class="text-xs text-gray-500">
+                          Created: {{ formatDate(challenge.createdAt) }}
+                        </span>
+                        <span v-if="challenge.deadline" class="ml-3 text-xs text-orange-500">
+                          Due: {{ formatDate(challenge.deadline) }}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                   <div class="flex space-x-2">
                     <button @click="editChallenge(challenge.challengesId)" class="text-blue-500 hover:text-blue-700 p-2 rounded-full hover:bg-blue-50 transition-colors">
@@ -198,6 +208,15 @@ export default {
             this.challengeForm = { challengeName: '' };
             this.currentChallengeId = null;
             this.isEditing = false;
+        },
+        formatDate(dateString) {
+            if (!dateString) return 'N/A';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                year: 'numeric'
+            });
         }
     }
 }
