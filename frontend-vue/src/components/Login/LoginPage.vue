@@ -37,6 +37,10 @@
       <div class="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100 overflow-hidden">
         <div class="p-8">
           <form @submit.prevent="handleLogin" class="space-y-6">
+            <div v-if="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+              {{ error }}
+            </div>
+            
             <div>
               <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
               <div class="relative">
@@ -82,11 +86,15 @@
               <button 
                 type="submit" 
                 class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex items-center justify-center"
+                :disabled="isLoading"
               >
-                <span class="mr-2">Sign in</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
+                <span v-if="isLoading">Signing in...</span>
+                <template v-else>
+                  <span class="mr-2">Sign in</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </template>
               </button>
             </div>
           </form>
@@ -136,6 +144,8 @@
 </template>
 
 <script>
+import AuthService from '../../services/AuthService';
+
 export default {
   name: 'LoginPage',
   data() {
@@ -152,10 +162,41 @@ export default {
       this.isLoading = true;
       this.error = null;
       
-      setTimeout(() => {
-        this.isLoading = false;
-        this.$router.push('/home');
-      }, 1000);
+      const loginRequest = {
+        username: this.username,
+        password: this.password
+      };
+      
+      AuthService.login(loginRequest)
+        .then(response => {
+          console.log('Login successful:', response);
+          
+          if (response.data.token) {
+            AuthService.setToken(response.data.token);
+          } else {
+            console.warn('No token received in response');
+          }
+          
+          this.$router.push('/home');
+        })
+        .catch(error => {
+          console.error('Login error:', error);
+          
+          if (error.response) {
+            if (error.response.data && error.response.data.message) {
+              this.error = error.response.data.message;
+            } else {
+              this.error = `Authentication failed (${error.response.status})`;
+            }
+          } else if (error.request) {
+            this.error = 'No response from server. Please check your connection.';
+          } else {
+            this.error = 'Error: ' + error.message;
+          }
+        })
+        .finally(() => {
+          this.isLoading = false;
+        });
     }
   }
 }

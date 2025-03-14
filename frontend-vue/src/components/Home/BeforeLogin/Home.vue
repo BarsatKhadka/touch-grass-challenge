@@ -1,6 +1,25 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-indigo-100 text-gray-800 py-12 px-4 sm:px-8 relative overflow-hidden">
     
+    <!-- Navigation buttons at top right -->
+    <div class="absolute top-4 right-4 sm:top-8 sm:right-8 z-20 flex space-x-4">
+      <router-link to="/login">
+        <button class="bg-white text-gray-700 border border-gray-200
+          font-medium py-2 px-4 rounded-full transition duration-300 ease-in-out shadow-md 
+          hover:shadow-lg hover:-translate-y-1">
+          Log In
+        </button>
+      </router-link>
+      
+      <router-link to="/register">
+        <button class="bg-gradient-to-r from-green-500 to-blue-500 text-white
+          font-medium py-2 px-4 rounded-full transition duration-300 ease-in-out shadow-md 
+          hover:shadow-lg hover:-translate-y-1">
+          Sign Up
+        </button>
+      </router-link>
+    </div>
+    
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div class="absolute -top-16 -right-16 w-64 h-64 bg-green-100 rounded-full opacity-50"></div>
       <div class="absolute top-1/4 left-1/3 w-48 h-48 bg-blue-100 rounded-full opacity-30"></div>
@@ -70,6 +89,8 @@
 
 <script>
 import FeatureCards from './FeatureCards.vue';
+import AuthService from '../../../services/AuthService';
+
 export default {
   name: 'Home',
   components: {
@@ -77,8 +98,7 @@ export default {
   },
   methods: {
     handleGetStarted() {
-      
-      if (localStorage.getItem('jwt')) {
+      if (AuthService.isAuthenticated()) {
         this.$router.push('/home');
       } else {
         this.$router.push('/register');
