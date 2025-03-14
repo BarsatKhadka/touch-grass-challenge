@@ -1,21 +1,23 @@
 <template>
-    <div>
-        <Navbar />
-        <h1>Challenges</h1>
-        <ul>
-            <li v-for="challenge in challenges" :key="challenge.id">
-                {{ challenge.challengeName }}
-                <button @click="editChallenge(challenge.challengesId)">Edit</button>
-                <button @click="deleteChallenge(challenge.challengesId)">Delete</button>
-            </li>
-        </ul>
+  <div class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-indigo-100">
+    <Navbar />
+    <div class="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <h1>Challenges</h1>
+      <ul>
+          <li v-for="challenge in challenges" :key="challenge.id">
+              {{ challenge.challengeName }}
+              <button @click="editChallenge(challenge.challengesId)">Edit</button>
+              <button @click="deleteChallenge(challenge.challengesId)">Delete</button>
+          </li>
+      </ul>
 
-        <h2>{{ isEditing ? 'Edit Challenge' : 'Add New Challenge' }}</h2>
-        <form @submit.prevent="isEditing ? updateChallenge() : addChallenge()">
-            <input v-model="challengeForm.challengeName" placeholder="Challenge Name" required />
-            <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>
-        </form>
+      <h2>{{ isEditing ? 'Edit Challenge' : 'Add New Challenge' }}</h2>
+      <form @submit.prevent="isEditing ? updateChallenge() : addChallenge()">
+          <input v-model="challengeForm.challengeName" placeholder="Challenge Name" required />
+          <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>
+      </form>
     </div>
+  </div>
 </template>
 
 <script>
