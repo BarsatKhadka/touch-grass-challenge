@@ -25,7 +25,9 @@
       </div>
       
       <h1 class="text-4xl font-extrabold text-center mb-2">
-        Welcome Back
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600">
+          Welcome Back
+        </span>
       </h1>
       
       <p class="text-lg text-gray-600 mb-8 text-center max-w-md">
