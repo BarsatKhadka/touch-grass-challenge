@@ -57,9 +57,37 @@
               <h2 class="font-bold text-2xl text-blue-700">{{ isEditing ? 'Edit Challenge' : 'Create Challenge' }}</h2>
             </div>
             
-            <form @submit.prevent="isEditing ? updateChallenge() : addChallenge()">
-              <input v-model="challengeForm.challengeName" placeholder="Challenge Name" required />
-              <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>
+            <form @submit.prevent="isEditing ? updateChallenge() : addChallenge()" class="space-y-4">
+              <div>
+                <label for="challengeName" class="block text-sm font-medium text-gray-700 mb-1">Challenge Name</label>
+                <input 
+                  id="challengeName"
+                  v-model="challengeForm.challengeName" 
+                  placeholder="e.g., Morning meditation by the lake" 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  required 
+                />
+              </div>
+              
+              <div class="flex justify-end space-x-3">
+                <button 
+                  v-if="isEditing" 
+                  type="button" 
+                  @click="resetForm" 
+                  class="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100"
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="submit" 
+                  class="bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-shadow flex items-center"
+                >
+                  <span>{{ isEditing ? 'Update Challenge' : 'Create Challenge' }}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
             </form>
           </div>
         </div>
