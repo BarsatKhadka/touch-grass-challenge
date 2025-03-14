@@ -49,11 +49,19 @@
         </div>
         
         <div class="lg:col-span-1">
-          <h2>{{ isEditing ? 'Edit Challenge' : 'Add New Challenge' }}</h2>
-          <form @submit.prevent="isEditing ? updateChallenge() : addChallenge()">
+          <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-green-100 sticky top-24">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl flex items-center justify-center mr-4 shadow-md">
+                <span class="text-xl">{{ isEditing ? '✏️' : '✨' }}</span>
+              </div>
+              <h2 class="font-bold text-2xl text-blue-700">{{ isEditing ? 'Edit Challenge' : 'Create Challenge' }}</h2>
+            </div>
+            
+            <form @submit.prevent="isEditing ? updateChallenge() : addChallenge()">
               <input v-model="challengeForm.challengeName" placeholder="Challenge Name" required />
               <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
       <div v-if="challenges.length === 0" class="text-center py-8">
