@@ -4,6 +4,12 @@
       <div class="absolute -top-16 -right-16 w-64 h-64 bg-green-100 rounded-full opacity-50"></div>
       <div class="absolute top-1/4 left-1/3 w-48 h-48 bg-blue-100 rounded-full opacity-30"></div>
       <div class="absolute bottom-1/3 right-1/4 w-32 h-32 bg-indigo-100 rounded-full opacity-40"></div>
+      
+      <div v-for="i in 8" :key="`grass-${i}`" 
+           :class="`absolute w-8 h-12 origin-bottom opacity-20 animate-sway-${i % 4 + 1}`"
+           :style="`bottom: 0; left: ${10 + i * 12}%; transform: rotate(${-10 + i * 3}deg);`">
+        <div class="w-full h-full bg-green-500 rounded-t-full"></div>
+      </div>
     </div>
     
     <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10">
@@ -43,3 +49,31 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+@keyframes sway-1 {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes sway-2 {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(7deg); }
+}
+
+@keyframes sway-3 {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes sway-4 {
+  0%, 100% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+}
+
+.animate-sway-1 { animation: sway-1 3s ease-in-out infinite; }
+.animate-sway-2 { animation: sway-2 3.5s ease-in-out infinite; }
+.animate-sway-3 { animation: sway-3 4s ease-in-out infinite; }
+.animate-sway-4 { animation: sway-4 4.5s ease-in-out infinite; }
+</style>
