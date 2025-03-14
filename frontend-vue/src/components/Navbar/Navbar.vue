@@ -7,7 +7,7 @@
                 <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center mr-2">
                 <img src="/logo.png" alt="Touch Grass Logo" class="h-8 w-8 rounded-full" />
                 </div>
-                <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-blue-600">
+                <span class="text-xl lg:mr-64 font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-blue-600">
                 Touch Grass
                 </span>
             </div>
