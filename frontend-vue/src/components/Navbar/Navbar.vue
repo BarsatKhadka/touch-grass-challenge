@@ -42,7 +42,16 @@
             </button>
             </div>
 
-    
+            <!-- Mobile menu -->
+            <div v-if="mobileMenuOpen" class="sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <router-link to="/home" class="...">Dashboard</router-link>
+                <router-link to="/challenges" class="...">Challenges</router-link>
+                <router-link to="/community" class="...">Community</router-link>
+                <router-link to="/achievements" class="...">Achievements</router-link>
+            </div>
+            </div>
+
 
 
 
