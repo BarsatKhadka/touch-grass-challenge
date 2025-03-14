@@ -2,6 +2,8 @@ package com.barsat.touch_grass.Security.Service;
 
 import com.barsat.touch_grass.Entity.TheUser;
 import com.barsat.touch_grass.Repository.UserRepo;
+import com.barsat.touch_grass.Request.LoginRequest;
+import com.barsat.touch_grass.Request.SignUpRequest;
 import com.barsat.touch_grass.Security.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
