@@ -52,6 +52,8 @@
             </div>
             </div>
 
+            
+
 
 
 
@@ -59,4 +61,28 @@
       </div>
     </nav>
   </template>
+
+  <script>
+  export default {
+    name: 'Navbar',
+    data() {
+      return {
+        userMenuOpen: false,
+        mobileMenuOpen: false
+      }
+    },
+    methods: {
+      toggleUserMenu() {
+        this.userMenuOpen = !this.userMenuOpen;
+      },
+      toggleMobileMenu() {
+        this.mobileMenuOpen = !this.mobileMenuOpen;
+      },
+      logout() {
+        console.log('Logging out...');
+        this.$router.push('/login');
+      }
+    }
+  }
+  </script>
   
