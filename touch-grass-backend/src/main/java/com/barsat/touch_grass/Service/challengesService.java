@@ -7,6 +7,7 @@ import com.barsat.touch_grass.Repository.challengesRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,13 +26,22 @@ public class challengesService {
 
     public challengesDTO createChallenge(challengesDTO dto) {
         challengesEntity entity = mapper.toEntity(dto);
+        entity.setCreatedAt(LocalDateTime.now());
         challengesEntity savedEntity = repository.save(entity);
         return mapper.toDTO(savedEntity);
     }
 
     public challengesDTO updateChallenge(Long id, challengesDTO dto) {
         dto.setChallengesId(id);
+        
+        
+        challengesEntity existingEntity = repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Challenge not found with id: " + id));
+        
+        
         challengesEntity entity = mapper.toEntity(dto);
+        entity.setCreatedAt(existingEntity.getCreatedAt());
+        
         challengesEntity updatedEntity = repository.save(entity);
         return mapper.toDTO(updatedEntity);
     }
