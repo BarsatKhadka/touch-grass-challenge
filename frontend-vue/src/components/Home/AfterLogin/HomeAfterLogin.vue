@@ -12,16 +12,27 @@
                 </div>
                 <h2 class="font-bold text-2xl text-green-700">Your Challenges</h2>
               </div>
-              <button @click="resetForm" class="bg-green-500 text-white py-2 px-4 rounded-full flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
-                </svg>
-                New Challenge
-              </button>
+              <div class="flex items-center">
+                <div class="mr-4">
+                  <select v-model="statusFilter" class="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <option value="ALL">All Statuses</option>
+                    <option value="NOT_STARTED">Not Started</option>
+                    <option value="IN_PROGRESS">In Progress</option>
+                    <option value="COMPLETED">Completed</option>
+                    <option value="CANCELLED">Cancelled</option>
+                  </select>
+                </div>
+                <button @click="resetForm" class="bg-green-500 text-white py-2 px-4 rounded-full flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                  </svg>
+                  New Challenge
+                </button>
+              </div>
             </div>
             
             <ul class="space-y-4">
-              <li v-for="challenge in challenges" :key="challenge.challengesId" 
+              <li v-for="challenge in filteredChallenges" :key="challenge.challengesId" 
                   class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                 <div class="flex justify-between items-center">
                   <div class="flex items-center">
@@ -170,7 +181,8 @@ export default {
                 challengeName: ''
             },
             currentChallengeId: null,
-            isEditing: false
+            isEditing: false,
+            statusFilter: 'ALL'
         }
     },
     mounted() {
@@ -245,6 +257,28 @@ export default {
                 default:
                     return 'bg-gray-100 text-gray-800';
             }
+        },
+        getInitials(name) {
+            return name.split(' ').map(n => n[0]).join('').toUpperCase();
+        },
+        getParticipantColor(index) {
+            const colors = [
+                'bg-blue-500',
+                'bg-green-500',
+                'bg-purple-500',
+                'bg-yellow-500',
+                'bg-red-500',
+                'bg-indigo-500'
+            ];
+            return colors[index % colors.length];
+        }
+    },
+    computed: {
+        filteredChallenges() {
+            if (this.statusFilter === 'ALL') {
+                return this.challenges;
+            }
+            return this.challenges.filter(challenge => challenge.status === this.statusFilter);
         }
     }
 }
