@@ -202,3 +202,31 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+button {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+input:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.rounded-lg {
+  transition: all 0.2s ease;
+}
+
+.rounded-lg:hover {
+  transform: translateY(-2px);
+}
+</style>
