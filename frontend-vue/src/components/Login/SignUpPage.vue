@@ -20,7 +20,9 @@
         </div>
         
         <h1 class="text-4xl font-extrabold text-center mb-2">
-          Join the Challenge
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600">
+            Join the Challenge
+          </span>
         </h1>
         
         <p class="text-lg text-gray-600 mb-8 text-center max-w-md">
@@ -44,7 +46,7 @@
               
               <div>
                 <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                <input 
+                <input  
                   id="lastName"
                   v-model="lastName" 
                   placeholder="Enter your last name" 
