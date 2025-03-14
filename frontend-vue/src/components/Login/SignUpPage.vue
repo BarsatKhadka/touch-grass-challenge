@@ -38,29 +38,17 @@
 
         <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
           <form @submit.prevent="handleSignup">
-            <!-- Display error message if signup fails -->
             <div v-if="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
               {{ error }}
             </div>
             
             <div class="space-y-4">
               <div>
-                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
                 <input 
-                  id="firstName"
-                  v-model="firstName" 
-                  placeholder="Enter your first name" 
-                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
-                  required 
-                />
-              </div>
-              
-              <div>
-                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                <input  
-                  id="lastName"
-                  v-model="lastName" 
-                  placeholder="Enter your last name" 
+                  id="username"
+                  v-model="username" 
+                  placeholder="Choose a username" 
                   class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
                   required 
                 />
@@ -134,8 +122,7 @@
     name: 'SignupPage',
     data() {
       return {
-        firstName: '',
-        lastName: '',
+        username: '',
         email: '',
         password: '',
         loading: false,
@@ -148,22 +135,20 @@
         this.error = null;
         
         const signUpRequest = {
-          username: this.firstName + " " + this.lastName,
+          username: this.username,
           email: this.email,
           password: this.password
         };
         
-
         AuthService.signup(signUpRequest)
           .then(response => {
+            this.$toast?.success('Account created successfully! Please log in.', {
+              duration: 3000
+            });
             
-            AuthService.setToken(response.data.token);
-            
-
-            this.$router.push('/home');
+            this.$router.push('/login');
           })
           .catch(error => {
-
             console.error('Signup error:', error);
             this.error = error.response?.data?.message || 'Failed to create account. Please try again.';
           })

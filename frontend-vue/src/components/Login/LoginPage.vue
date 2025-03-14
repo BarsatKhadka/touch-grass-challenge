@@ -38,21 +38,20 @@
         <div class="p-8">
           <form @submit.prevent="handleLogin" class="space-y-6">
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
                   </svg>
                 </div>
                 <input 
-                  id="email"
-                  v-model="email" 
-                  type="email" 
+                  id="username"
+                  v-model="username" 
+                  type="text" 
                   required
                   class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="your.email@example.com"
+                  placeholder="Enter your username"
                 />
               </div>
             </div>
@@ -141,7 +140,7 @@ export default {
   name: 'LoginPage',
   data() {
     return {
-      email: '',
+      username: '',
       password: '',
       rememberMe: false,
       isLoading: false,
@@ -152,7 +151,6 @@ export default {
     handleLogin() {
       this.isLoading = true;
       this.error = null;
-      
       
       setTimeout(() => {
         this.isLoading = false;
