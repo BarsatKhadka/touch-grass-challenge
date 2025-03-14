@@ -8,6 +8,17 @@
       </div>
       
       <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10">
+        <div class="relative mb-8">
+          <div class="w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-blue-500 animate-breathing shadow-2xl"></div>
+          <div class="absolute inset-3 rounded-full overflow-hidden border-4 border-white">
+            <img
+              src="/logo.png"
+              alt="Touch Grass Challenge Logo"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        
         <h1 class="text-4xl font-extrabold text-center mb-2">
           Join the Challenge
         </h1>
@@ -46,3 +57,28 @@
     }
   }
   </script>
+
+  <style scoped>
+  .animate-breathing {
+    animation: box-breathing 8s ease-in-out infinite;
+  }
+
+  @keyframes box-breathing {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    25% {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
+    75% {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+  }
+  </style>
