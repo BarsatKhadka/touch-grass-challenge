@@ -36,8 +36,13 @@
         </p>
         
 
-        <div class="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 border border-green-100">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
           <form @submit.prevent="handleSignup">
+            <!-- Display error message if signup fails -->
+            <div v-if="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+              {{ error }}
+            </div>
+            
             <div class="space-y-4">
               <div>
                 <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
@@ -86,14 +91,13 @@
               </div>
             </div>
             
-            <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white
-              text-lg font-semibold py-3 px-6 rounded-full transform hover:-translate-y-1
-              hover:scale-105 transition duration-300 ease-in-out shadow-lg flex items-center
-              justify-center gap-2 mt-4">
-              Create Account
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
+            <button 
+              type="submit" 
+              class="w-full bg-green-500 text-white py-2 px-4 rounded mt-6"
+              :disabled="loading"
+            >
+              <span v-if="loading">Creating Account...</span>
+              <span v-else>Create Account</span>
             </button>
           </form>
           
@@ -124,6 +128,8 @@
   </template>
   
   <script>
+  import AuthService from '../../services/AuthService';
+  
   export default {
     name: 'SignupPage',
     data() {
@@ -132,11 +138,38 @@
         lastName: '',
         email: '',
         password: '',
+        loading: false,
+        error: null
       }
     },
     methods: {
       handleSignup() {
-        this.$router.push('/home');
+        this.loading = true;
+        this.error = null;
+        
+        const signUpRequest = {
+          username: this.firstName + " " + this.lastName,
+          email: this.email,
+          password: this.password
+        };
+        
+
+        AuthService.signup(signUpRequest)
+          .then(response => {
+            
+            AuthService.setToken(response.data.token);
+            
+
+            this.$router.push('/home');
+          })
+          .catch(error => {
+
+            console.error('Signup error:', error);
+            this.error = error.response?.data?.message || 'Failed to create account. Please try again.';
+          })
+          .finally(() => {
+            this.loading = false;
+          });
       }
     }
   }
