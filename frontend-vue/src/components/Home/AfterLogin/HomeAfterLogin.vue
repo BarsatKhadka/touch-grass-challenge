@@ -56,6 +56,12 @@
           </form>
         </div>
       </div>
+      <div v-if="challenges.length === 0" class="text-center py-8">
+        <p class="text-gray-500">You haven't created any challenges yet.</p>
+        <button @click="resetForm" class="mt-4 bg-green-100 text-green-700 py-2 px-6 rounded-full hover:bg-green-200">
+          Create your first challenge
+        </button>
+      </div>
     </div>
   </div>
 </template>
