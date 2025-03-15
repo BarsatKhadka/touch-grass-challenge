@@ -28,10 +28,8 @@
                         </button>
                     </div>
                     
-
-                    <div v-if="userMenuOpen" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
+                    <div v-if="userMenuOpen" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                         <router-link to="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</router-link>
-                        <router-link to="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</router-link>
                         <button @click="logout" class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
                     </div>
                 </div>
@@ -73,7 +71,6 @@
                 </div>
                 <div class="mt-3 space-y-1">
                     <router-link to="/profile" class="block py-2 px-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700">Your Profile</router-link>
-                    <router-link to="/settings" class="block py-2 px-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700">Settings</router-link>
                     <button @click="logout" class="w-full text-left block py-2 px-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700">Sign out</button>
                 </div>
             </div>
