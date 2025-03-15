@@ -55,6 +55,27 @@
                     <span :class="getStatusBadgeClass(challenge.status)" class="px-2 py-1 rounded-full text-xs font-medium mr-3">
                       {{ formatStatus(challenge.status) }}
                     </span>
+                    <div class="dropdown relative">
+                      <button @click="toggleStatusDropdown(challenge.challengesId)" class="text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-50 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                        </svg>
+                      </button>
+                      <div v-if="activeDropdown === challenge.challengesId" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 py-1">
+                        <button @click="quickUpdateStatus(challenge.challengesId, 'NOT_STARTED')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                          Not Started
+                        </button>
+                        <button @click="quickUpdateStatus(challenge.challengesId, 'IN_PROGRESS')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                          In Progress
+                        </button>
+                        <button @click="quickUpdateStatus(challenge.challengesId, 'COMPLETED')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                          Completed
+                        </button>
+                        <button @click="quickUpdateStatus(challenge.challengesId, 'CANCELLED')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                          Cancelled
+                        </button>
+                      </div>
+                    </div>
                     <div class="flex space-x-2">
                       <button @click="editChallenge(challenge.challengesId)" class="text-blue-500 hover:text-blue-700 p-2 rounded-full hover:bg-blue-50 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -93,6 +114,20 @@
                   class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   required 
                 />
+              </div>
+              
+              <div v-if="isEditing">
+                <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                <select 
+                  id="status"
+                  v-model="challengeForm.status" 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="NOT_STARTED">Not Started</option>
+                  <option value="IN_PROGRESS">In Progress</option>
+                  <option value="COMPLETED">Completed</option>
+                  <option value="CANCELLED">Cancelled</option>
+                </select>
               </div>
               
               <div class="flex justify-end space-x-3">
@@ -182,7 +217,8 @@ export default {
             },
             currentChallengeId: null,
             isEditing: false,
-            statusFilter: 'ALL'
+            statusFilter: 'ALL',
+            activeDropdown: null
         }
     },
     mounted() {
@@ -195,7 +231,12 @@ export default {
             });
         },
         addChallenge() {
-            ChallengeService.createChallenge(this.challengeForm).then(() => {
+            const newChallenge = {
+                ...this.challengeForm,
+                status: 'NOT_STARTED'
+            };
+            
+            ChallengeService.createChallenge(newChallenge).then(() => {
                 this.fetchChallenges();
                 this.resetForm();
             });
@@ -205,7 +246,8 @@ export default {
             if (challenge) {
                 this.currentChallengeId = challengeId;
                 this.challengeForm = { 
-                    challengeName: challenge.challengeName 
+                    challengeName: challenge.challengeName,
+                    status: challenge.status || 'NOT_STARTED'
                 };
                 this.isEditing = true;
             }
@@ -222,7 +264,10 @@ export default {
             });
         },
         resetForm() {
-            this.challengeForm = { challengeName: '' };
+            this.challengeForm = { 
+                challengeName: '',
+                status: 'NOT_STARTED'
+            };
             this.currentChallengeId = null;
             this.isEditing = false;
         },
@@ -271,6 +316,22 @@ export default {
                 'bg-indigo-500'
             ];
             return colors[index % colors.length];
+        },
+        toggleStatusDropdown(challengeId) {
+            this.activeDropdown = this.activeDropdown === challengeId ? null : challengeId;
+        },
+        quickUpdateStatus(challengeId, status) {
+            const challenge = this.challenges.find(c => c.challengesId === challengeId);
+            if (challenge) {
+                const updatedChallenge = {
+                    challengeName: challenge.challengeName,
+                    status: status
+                };
+                ChallengeService.updateChallenge(challengeId, updatedChallenge).then(() => {
+                    this.fetchChallenges();
+                    this.activeDropdown = null;
+                });
+            }
         }
     },
     computed: {

@@ -1,5 +1,6 @@
 package com.barsat.touch_grass.DTO;
 
+import com.barsat.touch_grass.Entity.ChallengeStatus;
 import com.barsat.touch_grass.Entity.challengesEntity;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ public class challengesMapper {
     public challengesDTO toDTO(challengesEntity entity) {
         if (entity == null) return null;
 
-        return new challengesDTO(
+        challengesDTO dto = new challengesDTO(
             entity.getChallengesId(),
             entity.getChallengeName(),
             entity.getDescription(),
@@ -20,6 +21,13 @@ public class challengesMapper {
             entity.getDeadline(),
             entity.getParticipants() != null ? new ArrayList<>(entity.getParticipants()) : new ArrayList<>()
         );
+        
+
+        if (entity.getStatus() != null) {
+            dto.setStatus(entity.getStatus().name());
+        }
+        
+        return dto;
     }
 
     public challengesEntity toEntity(challengesDTO dto) {
@@ -32,6 +40,14 @@ public class challengesMapper {
         entity.setCreatedAt(dto.getCreatedAt());
         entity.setDeadline(dto.getDeadline());
         entity.setParticipants(dto.getParticipants() != null ? new ArrayList<>(dto.getParticipants()) : new ArrayList<>());
+        
+        if (dto.getStatus() != null) {
+            try {
+                entity.setStatus(ChallengeStatus.valueOf(dto.getStatus()));
+            } catch (IllegalArgumentException e) {
+                System.err.println("Invalid status value: " + dto.getStatus());
+            }
+        }
 
         return entity;
     }
