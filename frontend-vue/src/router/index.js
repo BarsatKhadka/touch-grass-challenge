@@ -22,7 +22,7 @@ const router = createRouter({
         },
         {
             path: '/profile',
-            component: () => import('../components/Profile/ProfilePage.vue')
+            component: () => import('../components/Profile/Profile.vue')
         }
     ]
 });
