@@ -24,7 +24,7 @@
                         <button @click="toggleUserMenu" class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                         <span class="sr-only">Open user menu</span>
                         <div class="h-8 w-8 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center text-white font-medium">
-                            JD
+                            {{ userInitials }}
                         </div>
                         </button>
                     </div>
@@ -66,12 +66,11 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <div class="h-10 w-10 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center text-white font-medium">
-                            JD
+                            {{ userInitials }}
                         </div>
                     </div>
                     <div class="ml-3">
-                        <div class="text-base font-medium text-gray-800">Jamie Doe</div>
-                        <div class="text-sm font-medium text-gray-500">jamie@example.com</div>
+                        <div class="text-base font-medium text-gray-800">{{ userName }}</div>
                     </div>
                 </div>
                 <div class="mt-3 space-y-1">
@@ -86,15 +85,56 @@
   </template>
 
   <script>
+  import { jwtDecode } from 'jwt-decode';
+
   export default {
     name: 'Navbar',
     data() {
       return {
         userMenuOpen: false,
-        mobileMenuOpen: false
+        mobileMenuOpen: false,
+        userInfo: null,
+        userName: 'User',
+        userInitials: 'U'
       }
     },
+    created() {
+      this.getUserInfoFromToken();
+    },
     methods: {
+      getUserInfoFromToken() {
+        const jwt = localStorage.getItem('jwt');
+        if (jwt) {
+          try {
+            this.userInfo = jwtDecode(jwt);
+            
+            // Set username from token
+            if (this.userInfo.username) {
+              this.userName = this.userInfo.username;
+            } else if (this.userInfo.sub) {
+              this.userName = this.userInfo.sub;
+            } else if (this.userInfo.email) {
+              this.userName = this.userInfo.email.split('@')[0];
+            }
+            
+            // Generate initials
+            this.userInitials = this.generateInitials(this.userName);
+            
+          } catch (error) {
+            console.error('Error decoding token:', error);
+          }
+        }
+      },
+      generateInitials(name) {
+        if (!name) return 'U';
+        
+        const parts = name.split(/[\s._-]+/);
+        if (parts.length === 1) {
+          return name.substring(0, Math.min(2, name.length)).toUpperCase();
+        } else {
+          return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+        }
+      },
       toggleUserMenu() {
         this.userMenuOpen = !this.userMenuOpen;
         if (this.userMenuOpen) {
