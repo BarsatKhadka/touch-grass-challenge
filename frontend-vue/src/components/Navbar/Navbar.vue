@@ -108,6 +108,7 @@
         }
       },
       logout() {
+        localStorage.removeItem('jwt');
         this.$router.push('/');
       }
     },
