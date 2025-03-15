@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-indigo-100">
+  <div class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
     <Navbar />
     <div class="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -25,8 +25,8 @@
         </div>
       </div>
       <div v-if="challenges.length === 0" class="text-center py-8">
-        <p class="text-gray-500">You haven't created any challenges yet.</p>
-        <button @click="resetForm" class="mt-4 bg-green-100 text-green-700 py-2 px-6 rounded-full hover:bg-green-200">
+        <p class="text-gray-300">You haven't created any challenges yet.</p>
+        <button @click="resetForm" class="mt-4 bg-green-800 text-green-100 py-2 px-6 rounded-full hover:bg-green-700">
           Create your first challenge
         </button>
       </div>
@@ -162,7 +162,7 @@ button {
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 button:active {
