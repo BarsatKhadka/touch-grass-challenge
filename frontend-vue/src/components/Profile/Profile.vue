@@ -6,10 +6,20 @@
       </div>
       
       <div v-else-if="userInfo" class="profile-card">
-        <h2>User Profile</h2>
+        <div class="profile-header">
+          <img :src="userAvatar" alt="User Avatar" class="user-avatar" />
+          <h2>{{ userInfo.username || userInfo.sub }}</h2>
+        </div>
+        
         <div class="profile-info">
-          <p><strong>Username:</strong> {{ userInfo.sub }}</p>
           <p><strong>Email:</strong> {{ userInfo.email || 'Not available' }}</p>
+          <p><strong>User ID:</strong> {{ userInfo.sub }}</p>
+        </div>
+        
+        <div class="token-info">
+          <h3>Token Information</h3>
+          <p><strong>Issued At:</strong> {{ formatDate(userInfo.iat) }}</p>
+          <p><strong>Expires At:</strong> {{ formatDate(userInfo.exp) }}</p>
         </div>
       </div>
       
@@ -27,7 +37,8 @@
     data() {
       return {
         userInfo: null,
-        loading: true
+        loading: true,
+        userAvatar: 'https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff'
       }
     },
     created() {
@@ -39,12 +50,20 @@
         if (jwt) {
           try {
             this.userInfo = jwtDecode(jwt);
-            console.log('Decoded token:', this.userInfo);
+            
+            if (this.userInfo.username) {
+              this.userAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(this.userInfo.username)}&background=0D8ABC&color=fff`;
+            }
+            
           } catch (error) {
             console.error('Error decoding token:', error);
           }
         }
         this.loading = false;
+      },
+      formatDate(timestamp) {
+        if (!timestamp) return 'N/A';
+        return new Date(timestamp * 1000).toLocaleString();
       }
     }
   }
@@ -64,8 +83,33 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .profile-info {
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .profile-info, .token-info {
     margin-top: 20px;
+  }
+  
+  .token-info {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+  }
+  
+  h3 {
+    margin-bottom: 15px;
+    color: #555;
   }
   
   .loading-spinner {
