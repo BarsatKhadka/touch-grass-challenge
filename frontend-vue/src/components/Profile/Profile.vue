@@ -1,43 +1,45 @@
 <template>
     <Navbar />
-    <div class="profile-container">
-      <div v-if="loading" class="loading-spinner">
-        <div class="spinner"></div>
-        <p>Loading...</p>
-      </div>
-      
-      <div v-else-if="userInfo" class="profile-card">
-        <div class="profile-header">
-          <img :src="userAvatar" alt="User Avatar" class="user-avatar" />
-          <h2>{{ userInfo.username || userInfo.sub }}</h2>
+    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
+      <div class="profile-container">
+        <div v-if="loading" class="loading-spinner">
+          <div class="spinner"></div>
+          <p class="text-gray-200">Loading...</p>
         </div>
         
-        <div class="profile-tabs">
-          <div 
-            v-for="tab in tabs" 
-            :key="tab.id" 
-            @click="activeTab = tab.id" 
-            :class="['tab', { active: activeTab === tab.id }]"
-          >
-            {{ tab.name }}
-          </div>
-        </div>
-        
-        <div class="tab-content">
-          <div v-if="activeTab === 'info'" class="profile-info">
-            <p><strong>Email:</strong> {{ userInfo.email || 'Not available' }}</p>
-            <p><strong>User ID:</strong> {{ userInfo.sub }}</p>
+        <div v-else-if="userInfo" class="profile-card">
+          <div class="profile-header">
+            <img :src="userAvatar" alt="User Avatar" class="user-avatar" />
+            <h2 class="text-gray-800 font-bold text-xl">{{ userInfo.username || userInfo.sub }}</h2>
           </div>
           
-          <div v-if="activeTab === 'token'" class="token-info">
-            <p><strong>Issued At:</strong> {{ formatDate(userInfo.iat) }}</p>
-            <p><strong>Expires At:</strong> {{ formatDate(userInfo.exp) }}</p>
+          <div class="profile-tabs">
+            <div 
+              v-for="tab in tabs" 
+              :key="tab.id" 
+              @click="activeTab = tab.id" 
+              :class="['tab', { active: activeTab === tab.id }]"
+            >
+              {{ tab.name }}
+            </div>
+          </div>
+          
+          <div class="tab-content">
+            <div v-if="activeTab === 'info'" class="profile-info">
+              <p class="text-gray-700"><strong class="text-gray-900">Email:</strong> {{ userInfo.email || 'Not available' }}</p>
+              <p class="text-gray-700"><strong class="text-gray-900">User ID:</strong> {{ userInfo.sub }}</p>
+            </div>
+            
+            <div v-if="activeTab === 'token'" class="token-info">
+              <p class="text-gray-700"><strong class="text-gray-900">Issued At:</strong> {{ formatDate(userInfo.iat) }}</p>
+              <p class="text-gray-700"><strong class="text-gray-900">Expires At:</strong> {{ formatDate(userInfo.exp) }}</p>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div v-else class="error-message">
-        <p>No user information available. Please log in.</p>
+        
+        <div v-else class="error-message">
+          <p>No user information available. Please log in.</p>
+        </div>
       </div>
     </div>
   </template>
@@ -101,7 +103,8 @@
     background-color: #f8f9fa;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #fff;
   }
   
   .profile-header {
@@ -116,7 +119,7 @@
     border-radius: 50%;
     margin-right: 20px;
     border: 3px solid #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
   .profile-tabs {
@@ -129,6 +132,12 @@
     padding: 10px 15px;
     cursor: pointer;
     margin-right: 5px;
+    color: #6c757d;
+    transition: all 0.2s ease;
+  }
+  
+  .tab:hover {
+    color: #495057;
   }
   
   .tab.active {
@@ -146,8 +155,8 @@
   }
   
   .spinner {
-    border: 3px solid #f3f3f3;
-    border-top: 3px solid #3498db;
+    border: 3px solid rgba(75, 85, 99, 0.3);
+    border-top: 3px solid #34d399;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -166,5 +175,6 @@
     padding: 20px;
     background-color: #f8d7da;
     border-radius: 8px;
+    border: 1px solid #f5c2c7;
   }
   </style>
