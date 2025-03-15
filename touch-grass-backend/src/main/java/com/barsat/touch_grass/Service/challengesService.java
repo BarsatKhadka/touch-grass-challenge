@@ -45,21 +45,16 @@ public class challengesService {
     }
 
     public challengesDTO updateChallenge(Long id, challengesDTO dto) {
-        String username = getAuthenticatedUserName.getUsername();
-        TheUser theUser = userRepo.findByUsername(username);
 
         dto.setChallengesId(id);
 
         challengesEntity existingEntity = repository.findById(id)
             .orElseThrow(() -> new RuntimeException("Challenge not found with id: " + id));
 
-        if (!existingEntity.getTheUser().equals(theUser)) {
-            throw new RuntimeException("Unauthorized: You cannot update this challenge.");
-        }
         
         challengesEntity entity = mapper.toEntity(dto);
         entity.setCreatedAt(existingEntity.getCreatedAt());
-        
+        entity.setTheUser(existingEntity.getTheUser());
         challengesEntity updatedEntity = repository.save(entity);
         return mapper.toDTO(updatedEntity);
     }
