@@ -4,95 +4,13 @@
     <div class="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         <div class="lg:col-span-2">
-          <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-green-100">
-            <div class="flex items-center justify-between mb-6">
-              <div class="flex items-center">
-                <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-500 rounded-xl flex items-center justify-center mr-4 shadow-md">
-                  <span class="text-xl">🌱</span>
-                </div>
-                <h2 class="font-bold text-2xl text-green-700">Your Challenges</h2>
-              </div>
-              <div class="flex items-center">
-                <div class="mr-4">
-                  <select v-model="statusFilter" class="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <option value="ALL">All Statuses</option>
-                    <option value="NOT_STARTED">Not Started</option>
-                    <option value="IN_PROGRESS">In Progress</option>
-                    <option value="COMPLETED">Completed</option>
-                    <option value="CANCELLED">Cancelled</option>
-                  </select>
-                </div>
-                <button @click="resetForm" class="bg-green-500 text-white py-2 px-4 rounded-full flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
-                  </svg>
-                  New Challenge
-                </button>
-              </div>
-            </div>
-            
-            <ul class="space-y-4">
-              <li v-for="challenge in filteredChallenges" :key="challenge.challengesId" 
-                  class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                <div class="flex justify-between items-center">
-                  <div class="flex items-center">
-                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                      <span class="text-lg">🌿</span>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800">{{ challenge.challengeName }}</span>
-                      <div class="flex items-center mt-1">
-                        <span class="text-xs text-gray-500">
-                          Created: {{ formatDate(challenge.createdAt) }}
-                        </span>
-                        <span v-if="challenge.deadline" class="ml-3 text-xs text-orange-500">
-                          Due: {{ formatDate(challenge.deadline) }}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center">
-                    <span :class="getStatusBadgeClass(challenge.status)" class="px-2 py-1 rounded-full text-xs font-medium mr-3">
-                      {{ formatStatus(challenge.status) }}
-                    </span>
-                    <div class="dropdown relative">
-                      <button @click="toggleStatusDropdown(challenge.challengesId)" class="text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-50 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                        </svg>
-                      </button>
-                      <div v-if="activeDropdown === challenge.challengesId" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 py-1">
-                        <button @click="quickUpdateStatus(challenge.challengesId, 'NOT_STARTED')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                          Not Started
-                        </button>
-                        <button @click="quickUpdateStatus(challenge.challengesId, 'IN_PROGRESS')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                          In Progress
-                        </button>
-                        <button @click="quickUpdateStatus(challenge.challengesId, 'COMPLETED')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                          Completed
-                        </button>
-                        <button @click="quickUpdateStatus(challenge.challengesId, 'CANCELLED')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                          Cancelled
-                        </button>
-                      </div>
-                    </div>
-                    <div class="flex space-x-2">
-                      <button @click="editChallenge(challenge.challengesId)" class="text-blue-500 hover:text-blue-700 p-2 rounded-full hover:bg-blue-50 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                        </svg>
-                      </button>
-                      <button @click="deleteChallenge(challenge.challengesId)" class="text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-50 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <ChallengesList 
+            :challenges="challenges"
+            @new-challenge="resetForm"
+            @edit-challenge="editChallenge"
+            @delete-challenge="deleteChallenge"
+            @update-status="quickUpdateStatus"
+          />
         </div>
         
         <div class="lg:col-span-1">
@@ -175,13 +93,15 @@
 <script>
 import Navbar from '../../Navbar/Navbar.vue';
 import ProgressDashboard from './ProgressDashboard.vue';
+import ChallengesList from './ChallengeList.vue';
 import ChallengeService from '../../../services/ChallengeService';
 
 export default {
     name: 'HomeAfterLogin',
     components: {
         Navbar,
-        ProgressDashboard
+        ProgressDashboard,
+        ChallengesList
     },
     data() {
         return {
@@ -191,8 +111,6 @@ export default {
             },
             currentChallengeId: null,
             isEditing: false,
-            statusFilter: 'ALL',
-            activeDropdown: null,
             isFormHighlighted: false
         }
     },
@@ -274,56 +192,7 @@ export default {
                 });
             }
         },
-        formatDate(dateString) {
-            if (!dateString) return 'N/A';
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric',
-                year: 'numeric'
-            });
-        },
-        formatStatus(status) {
-            if (!status) return 'Not Started';
-            return status.replace('_', ' ').toLowerCase()
-                .split(' ')
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ');
-        },
-        getStatusBadgeClass(status) {
-            if (!status) return 'bg-gray-100 text-gray-800';
-            
-            switch(status) {
-                case 'NOT_STARTED':
-                    return 'bg-gray-100 text-gray-800';
-                case 'IN_PROGRESS':
-                    return 'bg-blue-100 text-blue-800';
-                case 'COMPLETED':
-                    return 'bg-green-100 text-green-800';
-                case 'CANCELLED':
-                    return 'bg-red-100 text-red-800';
-                default:
-                    return 'bg-gray-100 text-gray-800';
-            }
-        },
-        getInitials(name) {
-            return name.split(' ').map(n => n[0]).join('').toUpperCase();
-        },
-        getParticipantColor(index) {
-            const colors = [
-                'bg-blue-500',
-                'bg-green-500',
-                'bg-purple-500',
-                'bg-yellow-500',
-                'bg-red-500',
-                'bg-indigo-500'
-            ];
-            return colors[index % colors.length];
-        },
-        toggleStatusDropdown(challengeId) {
-            this.activeDropdown = this.activeDropdown === challengeId ? null : challengeId;
-        },
-        quickUpdateStatus(challengeId, status) {
+        quickUpdateStatus({ challengeId, status }) {
             const challenge = this.challenges.find(c => c.challengesId === challengeId);
             if (challenge) {
                 const updatedChallenge = {
@@ -332,17 +201,8 @@ export default {
                 };
                 ChallengeService.updateChallenge(challengeId, updatedChallenge).then(() => {
                     this.fetchChallenges();
-                    this.activeDropdown = null;
                 });
             }
-        }
-    },
-    computed: {
-        filteredChallenges() {
-            if (this.statusFilter === 'ALL') {
-                return this.challenges;
-            }
-            return this.challenges.filter(challenge => challenge.status === this.statusFilter);
         }
     }
 }
