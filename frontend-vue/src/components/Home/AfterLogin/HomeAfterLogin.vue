@@ -167,34 +167,21 @@
         </button>
       </div>
    
-      <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-green-100 mb-12">
-        <div class="flex items-center mb-6">
-          <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-500 rounded-xl flex items-center justify-center mr-4 shadow-md">
-            <span class="text-xl">📊</span>
-          </div>
-          <h2 class="font-bold text-2xl text-purple-700">Your Progress</h2>
-        </div>
-        
-        <div class="grid grid-cols-1 ">
-          <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
-            <div class="text-4xl font-bold text-green-600 mb-2">{{ challenges.length }}</div>
-            <div class="text-sm text-gray-600">Active Challenges</div>
-          </div>
-          
-        </div>
-      </div>
+      <ProgressDashboard :challenges="challenges" />
     </div>
   </div>
 </template>
 
 <script>
 import Navbar from '../../Navbar/Navbar.vue';
+import ProgressDashboard from './ProgressDashboard.vue';
 import ChallengeService from '../../../services/ChallengeService';
 
 export default {
     name: 'HomeAfterLogin',
     components: {
-        Navbar
+        Navbar,
+        ProgressDashboard
     },
     data() {
         return {
