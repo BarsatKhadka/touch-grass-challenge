@@ -156,26 +156,6 @@ export default {
 </script>
 
 <style scoped>
-@keyframes highlight-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(96, 165, 250, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
-  }
-}
-
-.challenge-form {
-  transition: all 0.3s ease-in-out;
-}
-
-.challenge-form.transform {
-  animation: highlight-pulse 2s 1;
-}
-
 button {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -187,17 +167,5 @@ button:hover {
 
 button:active {
   transform: translateY(0) scale(0.98);
-}
-
-input:focus {
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
-}
-
-.rounded-lg {
-  transition: all 0.2s ease;
-}
-
-.rounded-lg:hover {
-  transform: translateY(-2px);
 }
 </style>
