@@ -13,7 +13,6 @@
             </div>
             <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                 <router-link to="/home" class="border-transparent text-gray-500 hover:border-green-500 hover:text-green-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Dashboard</router-link>
-                <router-link to="/challenges" class="border-transparent text-gray-500 hover:border-green-500 hover:text-green-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Challenges</router-link>
                 <router-link to="/achievements" class="border-transparent text-gray-500 hover:border-green-500 hover:text-green-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Achievements</router-link>
                 </div>
             </div>
@@ -53,7 +52,6 @@
         <div v-if="mobileMenuOpen" class="sm:hidden absolute left-0 right-0 bg-white shadow-lg z-20">
             <div class="pt-2 pb-3 space-y-1 px-4">
                 <router-link to="/home" class="block py-2 px-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 border-l-4 border-transparent hover:border-green-500">Dashboard</router-link>
-                <router-link to="/challenges" class="block py-2 px-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 border-l-4 border-transparent hover:border-green-500">Challenges</router-link>
                 <router-link to="/achievements" class="block py-2 px-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 border-l-4 border-transparent hover:border-green-500">Achievements</router-link>
             </div>
             
