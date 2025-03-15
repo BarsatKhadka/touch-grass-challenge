@@ -11,15 +11,27 @@
           <h2>{{ userInfo.username || userInfo.sub }}</h2>
         </div>
         
-        <div class="profile-info">
-          <p><strong>Email:</strong> {{ userInfo.email || 'Not available' }}</p>
-          <p><strong>User ID:</strong> {{ userInfo.sub }}</p>
+        <div class="profile-tabs">
+          <div 
+            v-for="tab in tabs" 
+            :key="tab.id" 
+            @click="activeTab = tab.id" 
+            :class="['tab', { active: activeTab === tab.id }]"
+          >
+            {{ tab.name }}
+          </div>
         </div>
         
-        <div class="token-info">
-          <h3>Token Information</h3>
-          <p><strong>Issued At:</strong> {{ formatDate(userInfo.iat) }}</p>
-          <p><strong>Expires At:</strong> {{ formatDate(userInfo.exp) }}</p>
+        <div class="tab-content">
+          <div v-if="activeTab === 'info'" class="profile-info">
+            <p><strong>Email:</strong> {{ userInfo.email || 'Not available' }}</p>
+            <p><strong>User ID:</strong> {{ userInfo.sub }}</p>
+          </div>
+          
+          <div v-if="activeTab === 'token'" class="token-info">
+            <p><strong>Issued At:</strong> {{ formatDate(userInfo.iat) }}</p>
+            <p><strong>Expires At:</strong> {{ formatDate(userInfo.exp) }}</p>
+          </div>
         </div>
       </div>
       
@@ -38,7 +50,12 @@
       return {
         userInfo: null,
         loading: true,
-        userAvatar: 'https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff'
+        userAvatar: 'https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff',
+        activeTab: 'info',
+        tabs: [
+          { id: 'info', name: 'Profile Info' },
+          { id: 'token', name: 'Token Info' }
+        ]
       }
     },
     created() {
@@ -98,18 +115,25 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
   
-  .profile-info, .token-info {
-    margin-top: 20px;
+  .profile-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
   }
   
-  .token-info {
-    border-top: 1px solid #ddd;
-    padding-top: 15px;
+  .tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-right: 5px;
   }
   
-  h3 {
-    margin-bottom: 15px;
-    color: #555;
+  .tab.active {
+    border-bottom: 2px solid #3498db;
+    color: #3498db;
+  }
+  
+  .tab-content {
+    padding: 10px 0;
   }
   
   .loading-spinner {
