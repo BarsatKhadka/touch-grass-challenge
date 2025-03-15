@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-green-100 mb-12 mt-8 relative z-0">
+    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-green-100 mb-12 lg:mt-[220px] mt-8 relative z-0">
       <div class="flex items-center mb-6">
         <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-500 rounded-xl flex items-center justify-center mr-4 shadow-md">
           <span class="text-xl">📊</span>
