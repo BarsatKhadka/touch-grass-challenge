@@ -1,10 +1,10 @@
 <template>
-    <div class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-indigo-100 text-gray-800 py-12 px-4 sm:px-8 relative overflow-hidden">
+    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-gray-800 py-12 px-4 sm:px-8 relative overflow-hidden">
 
       <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute -top-16 -right-16 w-64 h-64 bg-green-100 rounded-full opacity-50"></div>
-        <div class="absolute top-1/4 left-1/3 w-48 h-48 bg-blue-100 rounded-full opacity-30"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-32 h-32 bg-indigo-100 rounded-full opacity-40"></div>
+        <div class="absolute -top-16 -right-16 w-64 h-64 bg-green-900 rounded-full opacity-30"></div>
+        <div class="absolute top-1/4 left-1/3 w-48 h-48 bg-blue-900 rounded-full opacity-20"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-32 h-32 bg-indigo-900 rounded-full opacity-30"></div>
         
         <div v-for="i in 8" :key="`grass-${i}`" 
              :class="`absolute w-8 h-12 origin-bottom opacity-20 animate-sway-${i % 4 + 1}`"
@@ -15,8 +15,8 @@
       
       <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10">
         <div class="relative mb-8">
-          <div class="w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-blue-500 animate-breathing shadow-2xl"></div>
-          <div class="absolute inset-3 rounded-full overflow-hidden border-4 border-white">
+          <div class="w-24 h-24 rounded-full bg-gradient-to-br from-green-600 to-blue-700 animate-breathing shadow-2xl"></div>
+          <div class="absolute inset-3 rounded-full overflow-hidden border-4 border-gray-800">
             <img
               src="/logo.png"
               alt="Touch Grass Challenge Logo"
@@ -26,17 +26,17 @@
         </div>
         
         <h1 class="text-4xl font-extrabold text-center mb-2">
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-indigo-400">
             Join the Challenge
           </span>
         </h1>
         
-        <p class="text-lg text-gray-600 mb-8 text-center max-w-md">
+        <p class="text-lg text-gray-300 mb-8 text-center max-w-md">
           Create an account to start your Touch Grass Challenge
         </p>
         
 
-        <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+        <div class="w-full max-w-md bg-white/90 backdrop-blur-sm rounded-lg shadow-xl p-8 border border-gray-200">
           <form @submit.prevent="handleSignup">
             <div v-if="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
               {{ error }}
@@ -81,7 +81,7 @@
             
             <button 
               type="submit" 
-              class="w-full bg-green-500 text-white py-2 px-4 rounded mt-6"
+              class="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-2 px-4 rounded-lg mt-6 shadow-md hover:shadow-lg"
               :disabled="loading"
             >
               <span v-if="loading">Creating Account...</span>
@@ -101,14 +101,14 @@
       </div>
     </div>
 
-    <div class="mt-6 bg-blue-50 p-4 rounded-xl border border-blue-100 max-w-md">
+    <div class="mt-6 bg-gray-800 p-4 rounded-xl border border-gray-700 max-w-md mx-auto text-gray-200">
       <div class="flex items-center">
-        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+        <div class="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center mr-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
           </svg>
         </div>
-        <p class="text-sm text-blue-800">
+        <p class="text-sm text-blue-200">
           Join our community and start connecting with nature today!
         </p>
       </div>

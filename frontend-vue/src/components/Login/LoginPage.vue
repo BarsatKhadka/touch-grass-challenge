@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-indigo-100 text-gray-800 py-12 px-4 sm:px-8 relative overflow-hidden">
+  <div class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-gray-800 py-12 px-4 sm:px-8 relative overflow-hidden">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-16 -right-16 w-64 h-64 bg-green-100 rounded-full opacity-50"></div>
-      <div class="absolute top-1/4 left-1/3 w-48 h-48 bg-blue-100 rounded-full opacity-30"></div>
-      <div class="absolute bottom-1/3 right-1/4 w-32 h-32 bg-indigo-100 rounded-full opacity-40"></div>
+      <div class="absolute -top-16 -right-16 w-64 h-64 bg-green-900 rounded-full opacity-30"></div>
+      <div class="absolute top-1/4 left-1/3 w-48 h-48 bg-blue-900 rounded-full opacity-20"></div>
+      <div class="absolute bottom-1/3 right-1/4 w-32 h-32 bg-indigo-900 rounded-full opacity-30"></div>
       
       <div v-for="i in 8" :key="`grass-${i}`" 
            :class="`absolute w-8 h-12 origin-bottom opacity-20 animate-sway-${i % 4 + 1}`"
@@ -14,8 +14,8 @@
     
     <div class="flex flex-col items-center justify-center min-h-[90vh] relative z-10">
       <div class="relative mb-8">
-        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-blue-500 animate-breathing shadow-2xl"></div>
-        <div class="absolute inset-3 rounded-full overflow-hidden border-4 border-white">
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-green-600 to-blue-700 animate-breathing shadow-2xl"></div>
+        <div class="absolute inset-3 rounded-full overflow-hidden border-4 border-gray-800">
           <img
             src="/logo.png"
             alt="Touch Grass Challenge Logo"
@@ -25,16 +25,16 @@
       </div>
       
       <h1 class="text-4xl font-extrabold text-center mb-2">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-indigo-400">
           Welcome Back
         </span>
       </h1>
       
-      <p class="text-lg text-gray-600 mb-8 text-center max-w-md">
+      <p class="text-lg text-gray-300 mb-8 text-center max-w-md">
         Don't worry, we will help you get back on track.
       </p>
       
-      <div class="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-green-100 overflow-hidden">
+      <div class="w-full max-w-md bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
         <div class="p-8">
           <form @submit.prevent="handleLogin" class="space-y-6">
             <div v-if="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -85,7 +85,7 @@
             <div>
               <button 
                 type="submit" 
-                class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex items-center justify-center"
+                class="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex items-center justify-center"
                 :disabled="isLoading"
               >
                 <span v-if="isLoading">Signing in...</span>
