@@ -28,4 +28,13 @@ public class challengesDTO {
 
     private List<String> participants;
 
+    private enum status{
+        NOT_STARTED,
+        IN_PROGRESS,
+        COMPLETED,
+        CANCELLED
+    };
+
+
+
 }

@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 
 @Entity
 @Getter
@@ -46,6 +48,9 @@ public class TheUser {
     public TheUser() {
 
     }
+
+    @OneToMany(mappedBy = "theUser")
+    private List<challengesEntity> challengesEntity;
 
 
     //keep adding more fields if needed.

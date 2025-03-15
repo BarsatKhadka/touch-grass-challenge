@@ -31,6 +31,11 @@ public class challengesEntity {
 
     @Enumerated(EnumType.STRING)
     private ChallengeStatus status;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private TheUser theUser;
+
+
 }
 
 @Getter
