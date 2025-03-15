@@ -1,4 +1,5 @@
 <template>
+    <Navbar />
     <div class="profile-container">
       <div v-if="loading" class="loading-spinner">
         <div class="spinner"></div>
@@ -43,9 +44,12 @@
   
   <script>
   import { jwtDecode } from 'jwt-decode';
-  
+  import Navbar from '../Navbar/Navbar.vue';
   export default {
     name: 'Profile',
+    components: {
+        Navbar
+    },
     data() {
       return {
         userInfo: null,
