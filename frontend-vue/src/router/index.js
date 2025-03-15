@@ -23,6 +23,10 @@ const router = createRouter({
         {
             path: '/profile',
             component: () => import('../components/Profile/Profile.vue')
+        },
+        {
+            path: '/achievments',
+            component: () => import('../components/Home/AfterLogin/Achievments/Achievments.vue')
         }
     ]
 });
