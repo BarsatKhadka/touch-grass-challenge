@@ -28,7 +28,7 @@ Touch Grass Challenge is a modern, responsive web application built with Vue.js 
 
 - Node.js (v14 or higher)
 - npm or yarn
-- Java 11 or higher (for backend)
+- Java 17 or higher (for backend)
 - MySQL (v8.0 or higher)
 
 ### Frontend Setup
@@ -47,16 +47,16 @@ Touch Grass Challenge is a modern, responsive web application built with Vue.js 
 
 3. Run the development server
    ```bash
-   npm run serve
+   npm run dev
    ```
 
-4. The application will be available at `http://localhost:8080`
+4. The application will be available at `http://localhost:5173`
 
 ### Backend Setup
 
 1. Navigate to the backend directory
    ```bash
-   cd backend
+   cd touch-grass-backend
    ```
 
 2. Build the project with Maven
@@ -69,7 +69,7 @@ Touch Grass Challenge is a modern, responsive web application built with Vue.js 
    ./mvnw spring-boot:run
    ```
 
-4. The backend API will be available at `http://localhost:8080/api`
+4. The backend API will be available at `http://localhost:8080`
 
 ### Environment Variables
 

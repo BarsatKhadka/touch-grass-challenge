@@ -71,12 +71,14 @@
           </svg>
         </button>
         
-        <button class="bg-gray-800 text-gray-200 border border-gray-700
-          text-lg font-medium py-4 px-8 rounded-full transform hover:-translate-y-1
-          transition duration-300 ease-in-out shadow-md flex items-center
-          justify-center gap-2">
-          Learn More
-        </button>
+        <a href="https://github.com/BarsatKhadka/touch-grass-challenge/blob/main/README.md" target="_blank">
+          <button class="bg-gray-800 text-gray-200 border border-gray-700
+            text-lg font-medium py-4 px-8 rounded-full transform hover:-translate-y-1
+            transition duration-300 ease-in-out shadow-md flex items-center
+            justify-center gap-2">
+            Learn More
+          </button>
+        </a>
       </div>
 
       <!-- feature cards -->
