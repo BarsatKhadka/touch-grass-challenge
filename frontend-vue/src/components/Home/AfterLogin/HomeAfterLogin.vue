@@ -96,7 +96,14 @@
         </div>
         
         <div class="lg:col-span-1">
-          <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-green-100 sticky top-24">
+          <div 
+            class="challenge-form bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md border sticky top-24 transition-all duration-500"
+            :class="[
+              isFormHighlighted 
+                ? 'border-blue-400 shadow-lg shadow-blue-100 transform scale-105 ring-4 ring-blue-200' 
+                : 'border-green-100'
+            ]"
+          >
             <div class="flex items-center mb-6">
               <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl flex items-center justify-center mr-4 shadow-md">
                 <span class="text-xl">{{ isEditing ? '✏️' : '✨' }}</span>
@@ -198,7 +205,8 @@ export default {
             currentChallengeId: null,
             isEditing: false,
             statusFilter: 'ALL',
-            activeDropdown: null
+            activeDropdown: null,
+            isFormHighlighted: false
         }
     },
     mounted() {
@@ -250,6 +258,34 @@ export default {
             };
             this.currentChallengeId = null;
             this.isEditing = false;
+            
+            
+            this.isFormHighlighted = true;
+            
+            
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    const inputElement = document.getElementById('challengeName');
+                    if (inputElement) {
+                        inputElement.focus();
+                    }
+                }, 300);
+            });
+            
+            
+            setTimeout(() => {
+                this.isFormHighlighted = false;
+            }, 2000);
+            
+            
+            if (window.innerWidth < 1024) {
+                this.$nextTick(() => {
+                    const formElement = document.querySelector('.challenge-form');
+                    if (formElement) {
+                        formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
         },
         formatDate(dateString) {
             if (!dateString) return 'N/A';
@@ -326,6 +362,25 @@ export default {
 </script>
 
 <style scoped>
+@keyframes highlight-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(96, 165, 250, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
+  }
+}
+
+.challenge-form {
+  transition: all 0.3s ease-in-out;
+}
+
+.challenge-form.transform {
+  animation: highlight-pulse 2s 1;
+}
 
 button {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
