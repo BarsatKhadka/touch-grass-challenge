@@ -171,7 +171,7 @@ export default {
         .then(response => {
           console.log('Login successful:', response);
           
-          if (response.data.token) {
+          if (response.data.jwtToken) {
             localStorage.setItem('jwt', response.data.jwtToken);
           } else {
             console.warn('No token received in response');
