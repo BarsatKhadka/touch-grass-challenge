@@ -24,7 +24,7 @@
           />
         </div>
       </div>
-      <div v-if="challenges.length === 0" class="text-center py-8">
+      <div v-if="challenges.length === 0" class="text-center">
         <p class="text-gray-300">You haven't created any challenges yet.</p>
         <button @click="resetForm" class="mt-4 bg-green-800 text-green-100 py-2 px-6 rounded-full hover:bg-green-700">
           Create your first challenge
