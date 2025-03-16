@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Achievments</h1>
+        <h1>Achievements</h1>
         <ul>
             <li v-for="achievement in achievements" :key="achievement.id">
                 <span :class="{ unlocked: achievement.unlocked }">{{ achievement.name }}</span>
@@ -13,16 +13,16 @@
 import ChallengeService from '../../../../services/ChallengeService.js';
 
 export default {
-    name: 'Achievments',
+    name: 'Achievements',
     data() {
         return {
             challenges: [],
             achievements: [
-                { id: 1, name: 'First Challenge Completed', unlocked: false },
-                { id: 2, name: 'Five Challenges Completed', unlocked: false },
-                { id: 3, name: 'Ten Challenges Completed', unlocked: false },
-                { id: 4, name: 'Twenty Challenges Completed', unlocked: false },
-                { id: 5, name: 'Fifty Challenges Completed', unlocked: false }
+                { id: 1, name: "First Step", unlocked: false },
+                { id: 2, name: "High Five", unlocked: false },
+                { id: 3, name: "Tenacious Ten", unlocked: false },
+                { id: 4, name: "Twenty Triumphs", unlocked: false },
+                { id: 5, name: "Fifty Finesse", unlocked: false }
             ]
         };
     },
