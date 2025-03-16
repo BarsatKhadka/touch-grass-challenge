@@ -60,11 +60,19 @@ export default {
             },
             currentChallengeId: null,
             isEditing: false,
-            isFormHighlighted: false
+            isFormHighlighted: false,
+            logoutTimer: null,
+            logoutTime: 50 * 60 * 1000 
         }
     },
     mounted() {
         this.fetchChallenges();
+        this.startLogoutTimer();
+        this.addActivityListeners();
+    },
+    beforeDestroy() {
+        this.removeActivityListeners();
+        this.clearLogoutTimer();
     },
     methods: {
         fetchChallenges() {
@@ -150,6 +158,31 @@ export default {
                     this.fetchChallenges();
                 });
             }
+        },
+        startLogoutTimer() {
+            this.clearLogoutTimer();
+            this.logoutTimer = setTimeout(this.logout, this.logoutTime);
+        },
+        clearLogoutTimer() {
+            if (this.logoutTimer) {
+                clearTimeout(this.logoutTimer);
+                this.logoutTimer = null;
+            }
+        },
+        addActivityListeners() {
+            window.addEventListener('mousemove', this.resetLogoutTimer);
+            window.addEventListener('keydown', this.resetLogoutTimer);
+        },
+        removeActivityListeners() {
+            window.removeEventListener('mousemove', this.resetLogoutTimer);
+            window.removeEventListener('keydown', this.resetLogoutTimer);
+        },
+        resetLogoutTimer() {
+            this.startLogoutTimer();
+        },
+        logout() {
+            localStorage.removeItem('jwt'); // Clear JWT token
+            this.$router.push('/login'); // Redirect to login page
         }
     }
 }
