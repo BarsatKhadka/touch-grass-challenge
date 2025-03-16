@@ -52,25 +52,22 @@ Touch Grass Challenge is a modern, responsive web application built with Vue.js 
 
 4. The application will be available at `http://localhost:5173`
 
-### Backend Setup
+### Backend Setup (with VS CODE) 
 
-1. Navigate to the backend directory
-   ```bash
-   cd touch-grass-backend
-   ```
+1. Open the touch-grass-backend with VS Code
+2. Go to src/main/java/com/barsat/touch_grass/TouchGrassApplication.java
+3. Install the extension: Extension pack for java
 
-2. Build the project with Maven
-   ```bash
-   ./mvnw clean install
-   ```
-
-3. Run the Spring Boot application
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-
-4. The backend API will be available at `http://localhost:8080`
+## Setting up the database
+Create a database in mysql. Name your database name.
+1. Open the touch-grass-backend
+2. Go to resources/application.properties
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/{your_db_name} 
+spring.datasource.username={your_sql_username}
+spring.datasource.password={your_sql_password}
+```
+The database schema is managed by hibernate which automatically generates schema for you!
 
 ### Environment Variables
-
-Create a `.env` file in the frontend-vue directory with the following variables:
+you can create env files instead of directly putting your db names in place of application.properties for security concerns.
