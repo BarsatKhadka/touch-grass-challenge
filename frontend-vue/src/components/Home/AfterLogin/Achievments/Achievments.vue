@@ -3,12 +3,19 @@
         <Navbar />
         <div class="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
             <h1 class="text-4xl font-extrabold text-gray-100 mb-8">Achievements</h1>
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <ul>
-                    <li v-for="achievement in achievements" :key="achievement.id">
-                        <span :class="{ unlocked: achievement.unlocked }">{{ achievement.name }}</span>
-                    </li>
-                </ul>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div v-for="achievement in achievements" :key="achievement.id" class="bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="h-12 w-12 rounded-full border-2 border-gray-300 flex items-center justify-center text-gray-700 font-bold">
+                            {{ achievement.icon }}
+                        </div>
+                    </div>
+                    <div>
+                        <h2 :class="{ unlocked: achievement.unlocked }" class="text-lg font-semibold">{{ achievement.name }}</h2>
+                        <p v-if="achievement.unlocked" class="text-green-500">Unlocked</p>
+                        <p v-else class="text-gray-500">Locked</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -27,11 +34,11 @@ export default {
         return {
             challenges: [],
             achievements: [
-                { id: 1, name: "First Step", unlocked: false },
-                { id: 2, name: "High Five", unlocked: false },
-                { id: 3, name: "Tenacious Ten", unlocked: false },
-                { id: 4, name: "Twenty Triumphs", unlocked: false },
-                { id: 5, name: "Fifty Finesse", unlocked: false }
+                { id: 1, name: "First Step", icon: "🌱", unlocked: false },
+                { id: 2, name: "High Five", icon: "🌿", unlocked: false },
+                { id: 3, name: "Tenacious Ten", icon: "🌳", unlocked: false },
+                { id: 4, name: "Twenty Triumphs", icon: "🌻", unlocked: false },
+                { id: 5, name: "Fifty Finesse", icon: "🏞️", unlocked: false }
             ]
         };
     },
