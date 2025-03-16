@@ -31,6 +31,13 @@ Touch Grass Challenge is a modern, responsive web application built with Vue.js 
 - Java 17 or higher (for backend)
 - MySQL (v8.0 or higher)
 
+### Video Setup Guide
+
+For a step-by-step visual guide on how to set up the project, check out the following video tutorial:
+
+[**Touch Grass Challenge Setup Video**](https://youtu.be/SM26sIJaRMs?si=GfAg6G6cQv3MUPkp)
+
+
 ### Frontend Setup
 
 1. Clone the repository
@@ -55,19 +62,22 @@ Touch Grass Challenge is a modern, responsive web application built with Vue.js 
 ### Backend Setup (with VS CODE) 
 
 1. Open the touch-grass-backend with VS Code
-2. Go to src/main/java/com/barsat/touch_grass/TouchGrassApplication.java
+2. Go to `src/main/java/com/barsat/touch_grass/TouchGrassApplication.java`
 3. Install the extension: Extension pack for java
 
+### Backend Setup (with Intellij Idea)
+1.
+
 ## Setting up the database
-Create a database in mysql. Name your database name.
-1. Open the touch-grass-backend
-2. Go to resources/application.properties
+1. Create a database in MySQL. Name your database as you prefer.
+2. Open the touch-grass-backend in your code editor.
+3. Navigate to `resources/application.properties` and update the database credentials:
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/{your_db_name} 
 spring.datasource.username={your_sql_username}
 spring.datasource.password={your_sql_password}
 ```
-The database schema is managed by hibernate which automatically generates schema for you!
+* Hibernate will automatically generate the database schema for you.
 
 ### Environment Variables
-you can create env files instead of directly putting your db names in place of application.properties for security concerns.
+For added security, it is recommended to store your database credentials in environment variables instead of directly placing them in the `application.properties` file. You can create a .env file to manage these variables as per your code editor.
