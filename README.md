@@ -22,6 +22,9 @@ Touch Grass Challenge is a modern, responsive web application built with Vue.js 
 - **Authentication**: JWT (JSON Web Tokens)
 - **Database**: MySQL
 
+## Main entity
+Challenge entity at `touch-grass-backend/src/main/java/com/barsat/touch_grass/Entity/challengesEntity.java`
+
 ## Project Setup Instructions
 
 ### Prerequisites
