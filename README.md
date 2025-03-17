@@ -63,21 +63,29 @@ For a step-by-step visual guide on how to set up the project, check out the foll
 
 1. Open the touch-grass-backend with VS Code
 2. Go to `src/main/java/com/barsat/touch_grass/TouchGrassApplication.java`
-3. Install the extension: Extension pack for java
+3. Install the Extension Pack for Java from the Extensions Marketplace.
+4. Follow the Database Setup instructions below.
 
 ### Backend Setup (with Intellij Idea)
-1.
+1. Open IntelliJ IDEA and go to File → Open.
+2. Locate the `touch-grass-backend` project folder and select the `pom.xml` file.
+3. When prompted, choose "Open as a Project".
+4. Follow the Database Setup instructions below.
+5. Press Ctrl + Alt + S to open Settings, navigate to Plugins, and install Lombok from the marketplace.
+7. Go to `src/main/java/com/barsat/touch_grass/TouchGrassApplication.java` and run the application. If a notification appears at the bottom right asking to "Enable annotation processing", click on it. Your application should now start.
 
 ## Setting up the database
 1. Create a database in MySQL. Name your database as you prefer.
-2. Open the touch-grass-backend in your code editor.
-3. Navigate to `resources/application.properties` and update the database credentials:
+2. Open the `touch-grass-backend` in your code editor.
+3. Navigate to `resources/application.properties` and update the database credentials with your MySQL Details:
 ```
-spring.datasource.url=jdbc:mysql://localhost:3306/{your_db_name} 
+spring.datasource.url=jdbc:mysql://localhost:3306/{your_db_name (the db you just created)} 
 spring.datasource.username={your_sql_username}
 spring.datasource.password={your_sql_password}
 ```
 * Hibernate will automatically generate the database schema for you.
+
+ Finally go to `src/main/java/com/barsat/touch_grass/TouchGrassApplication.java` and click the run button to start the application.
 
 ### Environment Variables
 For added security, it is recommended to store your database credentials in environment variables instead of directly placing them in the `application.properties` file. You can create a .env file to manage these variables as per your code editor.
